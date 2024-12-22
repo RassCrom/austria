@@ -1,0 +1,52 @@
+.clouds_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.cloud_one,
+.cloud_two {
+    max-height: 50vh;
+    width: auto; /* Maintains aspect ratio */
+    position: absolute;
+    animation: moveClouds 40s linear infinite;
+}
+
+.cloud_one {
+    top: 0;
+    left: -30%;
+    animation-name: moveClouds;
+}
+
+.cloud_two {
+    bottom: 0;
+    right: -30%;
+    animation-name: moveCloudsTwo;
+}
+
+@keyframes moveClouds {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveCloudsTwo {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

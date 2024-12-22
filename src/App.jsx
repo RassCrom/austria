@@ -1,6 +1,6 @@
 import './styles/App.css'
 
-import MapContainer from './pages/mapContainer'
+import MapContainer from './pages/MapContainer'
 
 function App() {
 
