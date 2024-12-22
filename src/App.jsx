@@ -1,12 +1,12 @@
 import './styles/App.css'
 
-import Map from './components/Map';
+import MapContainer from './pages/mapContainer'
 
 function App() {
 
   return (
     <>
-      <Map />
+      <MapContainer />
     </>
   )
 }

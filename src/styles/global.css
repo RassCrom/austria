@@ -1,0 +1,41 @@
+/* FONTS  */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before,
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color: whitesmoke;
+    background-color: #212529;
+
+    transition: all .3s ease;
+    scroll-behavior: smooth;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+
+.mapboxgl-ctrl-bottom-left,.mapboxgl-ctrl-attrib-inner {
+    display: none;
+}
