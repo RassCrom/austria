@@ -13,6 +13,8 @@
     width: auto; /* Maintains aspect ratio */
     position: absolute;
     animation: moveClouds 40s linear infinite;
+
+    z-index: -1;
 }
 
 .cloud_one {

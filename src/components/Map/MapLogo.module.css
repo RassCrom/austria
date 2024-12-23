@@ -2,4 +2,10 @@
     color: #6DA34D;
     font-family: "Playfair Display SC", serif;
     font-size: 4rem;
+
+    transition: all .5s ease-in;
+}
+
+.logo_text:hover {
+    color: #D98247;
 }
