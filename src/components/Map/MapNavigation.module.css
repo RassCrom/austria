@@ -1,0 +1,42 @@
+.header {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    z-index: 10;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0 100px;
+}
+
+.nav {
+    flex: 1;
+}
+
+.leftNav {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.rightNav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.centerLogo {
+    flex: 0; /* Ensures the logo doesn't stretch */
+    text-align: center;
+}
+
+nav ul li a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 120%;
+
+    transition: all .3s ease-in;
+}
+
+nav ul li a:hover {
+    color: #E9C46A;
+}

@@ -34,14 +34,13 @@ function Maps() {
 
         const map = mapRef.current;
 
-        // Log zoom and center on moveend
-        map.on('moveend', () => {
-            const zoom = map.getZoom();
-            const center = map.getCenter();
-            console.log(`Zoom level: ${zoom}`);
-            console.log(`Center: Longitude: ${center.lng}, Latitude: ${center.lat}`);
-            console.log(`${map.getBounds()}`);
-        });
+        // map.on('moveend', () => {
+        //     const zoom = map.getZoom();
+        //     const center = map.getCenter();
+        //     console.log(`Zoom level: ${zoom}`);
+        //     console.log(`Center: Longitude: ${center.lng}, Latitude: ${center.lat}`);
+        //     console.log(`${map.getBounds()}`);
+        // });
 
         // mapRef.current.addControl(new mapboxgl.NavigationControl())
         mapRef.current.setMaxBounds(bounds);

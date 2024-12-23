@@ -7,17 +7,17 @@ import { useEffect, useState } from "react";
 import styles from '../styles/mapCotaniner.module.css'
 
 function MapContainer() {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
   
-    // useEffect(() => {
-    //   const loadComponents = async () => {
-    //     // Simulate data fetching or async setup
-    //     await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate a 2-second delay
-    //     setIsLoading(false);
-    //   };
+    useEffect(() => {
+      const loadComponents = async () => {
+        // Simulate data fetching or async setup
+        await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate a 2-second delay
+        setIsLoading(false);
+      };
   
-    //   loadComponents();
-    // }, []);
+      loadComponents();
+    }, []);
   
     return (
       <>
