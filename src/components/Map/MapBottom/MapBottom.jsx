@@ -1,8 +1,10 @@
+import MapBottomSlider from "./MapBottomSlider";
+
 const MapBottom = () => {
     return (
-        <section className="absolute bottom-5 z-10 w-full h-auto flex items-center justify-between px-10">
-            <span className="text-lg font-semibold">Sounds</span>
-            <div className="w-auto h-auto mt-2">
+        <section className="absolute bottom-5 z-10 w-full h-auto flex items-center justify-between">
+            <MapBottomSlider /> 
+            <div className="w-auto h-auto absolute right-0 bottom-4 px-8 py-4">
                 <a href="#">
                     <img 
                         className="md:w-6 md:h-6 object-contain" 

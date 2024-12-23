@@ -1,6 +1,6 @@
 import Map from "../components/Map/Map";
 import MapNavigation from "../components/Map/MapNavigation";
-import MapBottom from "../components/Map/MapBottom";
+import MapBottom from "../components/Map/MapBottom/MapBottom";
 import Loader from "../components/Loader/Loader";
 import { useEffect, useState } from "react";
 
