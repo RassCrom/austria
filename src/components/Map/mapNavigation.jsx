@@ -2,7 +2,7 @@ import MapLogo from "./MapLogo";
 
 import styles from './MapNavigation.module.css';
 
-const MapNavigation = () => {
+const MapNavigation = ({ displayMenuHandler }) => {
 
     return (
         <>
@@ -21,7 +21,7 @@ const MapNavigation = () => {
 
                 <nav className={`${styles.nav} ${styles.rightNav}`}>
                     <ul className="nav-list flex gap-10">
-                        <li className="list-item"><a href="#">menu</a></li>
+                        <li className="list-item"><a href="#" onClick={displayMenuHandler}>menu</a></li>
                     </ul>
                 </nav>
             </header>

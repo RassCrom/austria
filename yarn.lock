@@ -2425,6 +2425,11 @@ grid-index@^1.1.0:
   resolved "https://registry.npmjs.org/grid-index/-/grid-index-1.1.0.tgz"
   integrity sha512-HZRwumpOGUrHyxO5bqKZL0B0GlUpwtCAzZ42sgxUPniu33R1LSFH5yrIcBCHjkctCAh3mtWKcKd9J4vDDdeVHA==
 
+gsap@^3.12.5:
+  version "3.12.5"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.12.5.tgz#136c02dad4c673b441bdb1ca00104bfcb4eae7f4"
+  integrity sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==
+
 h3-js@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/h3-js/-/h3-js-4.1.0.tgz#f8c4a8ad36612489a954f1a0bb3f4b7657d364e5"
@@ -3804,6 +3809,11 @@ three-js@^79.0.0:
   version "79.0.0"
   resolved "https://registry.yarnpkg.com/three-js/-/three-js-79.0.0.tgz#0318eaacab286ddcf88fa3e1977e8a6ee6957b59"
   integrity sha512-/jBULzQlazCXEh1OXFRg9gTcKcPvYYGkEC7ebCJGf4zBS3uHTO7KH3hKFtgYrT0m8jizce5Ews/2jkkmt5xBmw==
+
+three@^0.171.0:
+  version "0.171.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.171.0.tgz#3c0dd3f8fa14e78a7f8db6e416b98f264f1185c0"
+  integrity sha512-Y/lAXPaKZPcEdkKjh0JOAHVv8OOnv/NDJqm0wjfCzyQmfKxV7zvkwsnBgPBKTzJHToSOhRGQAGbPJObT59B/PQ==
 
 tilebelt@^1.0.1:
   version "1.0.1"
