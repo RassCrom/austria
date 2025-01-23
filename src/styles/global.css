@@ -11,6 +11,11 @@
 html, body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }
 
 html, body {
@@ -24,6 +29,19 @@ html, body {
 
     transition: all .3s ease;
     scroll-behavior: smooth;
+}
+
+
+@media (max-width: 1569px) {
+    html, body {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        font-size: 12px;
+    }
 }
 
 li {

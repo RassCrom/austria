@@ -1,17 +1,20 @@
 .header {
-    position: absolute;
+    position: fixed;
+    width: 1320px;
+    height: auto;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    text-align: center;
     z-index: 10;
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0 100px;
 }
 
 .nav {
     flex: 1;
+    width: 100%;
 }
 
 .leftNav {
@@ -30,7 +33,7 @@
 }
 
 nav ul li a {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     line-height: 120%;
 
@@ -39,4 +42,9 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #E9C46A;
+}
+
+.active {
+    color: #6DA34D;
+    font-weight: 700;
 }

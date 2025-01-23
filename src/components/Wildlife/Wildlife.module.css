@@ -1,0 +1,87 @@
+.wildlife,
+.wildlife_last {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* margin-top: 10rem; */
+
+    flex: 1 0 auto;
+    gap: 2rem;
+}
+
+.wildlife {
+    /* margin-top: 10rem; */
+}
+
+.wildlife_last {
+    /* height: 100%; */
+}
+
+.heading,
+.heading_secondary {
+    font-size: 4.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.1em;
+    color: #ffffff; /* Text color for "Wildlife" */
+
+    margin-bottom: 4rem;
+}
+
+.heading_secondary {
+    font-size: 2.2rem;
+    width: 60%;
+    margin-bottom: 2rem;
+}
+
+.outline_text {
+    color: transparent; /* No fill */
+    -webkit-text-stroke: 1px white; /* White outline */
+    font-weight: 400;
+}
+
+.wildlife_text, .wildlife_picture {
+    flex: 1 1 50%; /* Make both sections take 50% of the container's width */
+}
+
+.wildlife_text {
+
+}
+
+.wildlife_picture {
+}
+
+.wildlife_picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.text_p {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+}
+
+.text_p p,
+.text_p ul li {
+    /* font-size: 16px; */
+    font-weight: 300;
+}
+
+.styled_list {
+    width: 350px;
+    list-style: circle !important;
+    list-style-type: circle;
+    padding-left: 20px;    /* Отступ слева для красоты */
+}
+
+.styled_list li {
+    list-style: circle !important;
+    list-style-type: circle;
+    margin-bottom: 8px;
+}

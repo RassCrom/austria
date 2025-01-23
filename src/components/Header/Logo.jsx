@@ -1,6 +1,6 @@
-import styles from './MapLogo.module.css'
+import styles from './Logo.module.css'
 
-const MapLogo = () => {
+const Logo = () => {
 
     return (
         <div className="nav-text text-center z-10">
@@ -13,4 +13,4 @@ const MapLogo = () => {
     )
 }
 
-export default MapLogo;
+export default Logo;

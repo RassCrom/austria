@@ -1,0 +1,50 @@
+.wildlife {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10rem;
+
+    flex: 1 0 auto;
+    gap: 2rem;
+}
+
+.heading {
+    font-size: 4.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.1em;
+    color: #ffffff; /* Text color for "Wildlife" */
+
+    margin-bottom: 4rem;
+}
+
+.outline_text {
+    color: transparent; /* No fill */
+    -webkit-text-stroke: 1px white; /* White outline */
+    font-weight: 400;
+}
+
+.wildlife_text, .wildlife_picture {
+    flex: 1 1 50%; /* Make both sections take 50% of the container's width */
+}
+
+.wildlife_text {
+
+}
+
+.wildlife_picture {
+
+}
+
+.text_p {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+}
+
+.text_p p {
+    font-size: 16px;
+}
