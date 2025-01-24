@@ -71,7 +71,7 @@ function Map() {
             let model;
 
             loader.load(
-                'kabanbay.glb',
+                'assets/kabanbay.glb',
                 (gltf) => {
                 scene.add(gltf.scene);
                 }
