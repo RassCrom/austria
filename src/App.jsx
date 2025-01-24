@@ -7,10 +7,8 @@ import WildlifeContainer from "./pages/WildlifeContainer";
 import Root from "./pages/Root";
 // TODO Create shared layout
 const ROUTER = createBrowserRouter(createRoutesFromElements(
-  <Route path="/">
-    <Route path="wildlife" element={ <Root /> }>
-      <Route index element={ <WildlifeContainer /> } />
-    </Route>
+  <Route path="/" element={ <Root /> }>
+    <Route index element={ <WildlifeContainer /> } />
     <Route path="map" element={<MapContainer />} />
   </Route>
 ))
