@@ -2,21 +2,35 @@
     display: flex;
     gap: 2rem;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
-    transition: all ease .4s;
+    padding: 1rem;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    --translate-y: 0;
+    transform: translateY(var(--translate-y));
 }
 
 .card:nth-child(even) {
-    transform: translateY(5rem);
+    --translate-y: 8rem;
 }
+
 .card:nth-child(odd) {
-    transform: translateY(-5rem);
+    --translate-y: -8rem;
 }
+
+.card:hover {
+    transform: translateY(calc(var(--translate-y) + 10px));
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
 
 
 .card_pic {
-    width: 180px;
+    width: 18rem;
     height: 100%;
     border-radius: 50%;
     overflow: hidden;
@@ -47,5 +61,7 @@
 }
 
 .card_content__text {
-    font-weight: 200;
+    font-weight: 300;
+    color: #b1b1b1;
+    line-height: 1.4;
 }
