@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchAnimalData = async () => {
     try {
-        const res = await axios('public/animals.json');
+        const res = await axios('animals.json');
         // Validate the response structure before accessing
         if (res && res.data) {
             console.log(res.data)
