@@ -5,7 +5,7 @@ const WildlifeHighlightCard = ({ animal }) => {
   return (
     <div className={styles.card}>
       <div className={styles.card_pic}>
-        <img src={animal['img'] || 'src/assets/lynx.png'} alt={animal['animal']} />
+        <img src={animal['img'] || 'assets/lynx.png'} alt={animal['animal']} />
       </div>
       <div className={styles.card_content}>
         <h3 className={styles.card_content__title}>
