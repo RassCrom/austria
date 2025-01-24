@@ -8,7 +8,7 @@ const MapBottom = () => {
                 <a href="#">
                     <img 
                         className="md:w-6 md:h-6 object-contain" 
-                        src="../src/assets/sound.svg" 
+                        src="assets/sound.svg" 
                         alt="Sound Icon"
                     />
                 </a>
