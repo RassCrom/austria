@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 import WildlifeHero from '../components/Wildlife/WildlifeHero/WildlifeHero';
 import WildlifeLast from '../components/Wildlife/WildlifeLast.jsx/WildlifeLast';
+import WildlifeHighlight from '../components/Wildlife/WildlifeHighlight/WildlifeHighlight';
 import styles from '../styles/WildlifeContainer.module.css';
 
 const WildlifeContainer = () => {
@@ -16,7 +17,7 @@ const WildlifeContainer = () => {
     const scrolled = (winScroll / width) * 100;
     progressBar.current.style.width = scrolled + '%';
     
-    console.log(progressBar.current.style.width)
+    // console.log(progressBar.current.style.width)
 
   }, []);
 
@@ -64,6 +65,7 @@ const WildlifeContainer = () => {
         width: '100%',
         height: '100%',
         display: 'flex',
+        alignItems: 'center',
         overflowY: 'hidden',
         overflowX: 'scroll',
       }}
@@ -93,6 +95,7 @@ const WildlifeContainer = () => {
       </div>
 
       <WildlifeHero />
+      <WildlifeHighlight />
       <WildlifeLast />
     </div>
   );

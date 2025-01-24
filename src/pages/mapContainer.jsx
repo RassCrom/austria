@@ -3,6 +3,7 @@ import MapNavigation from "../components/Map/MapNavigation";
 import MapBottom from "../components/Map/MapBottom/MapBottom";
 import Loader from "../components/Loader/Loader";
 import Menu from "../components/Menu/Menu";
+
 import { useEffect, useState } from "react";
 
 import styles from '../styles/mapCotaniner.module.css'

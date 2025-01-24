@@ -1,6 +1,36 @@
 import styles from '../Wildlife.module.css';
 
+import { gsap } from 'gsap';
+import { useEffect } from 'react';
+
 const WildlifeHero = () => {
+  useEffect(() => {
+    gsap.fromTo(
+      `.${styles.heading}`, 
+      { opacity: 0, y: 50 }, 
+      { opacity: 1, y: 0, duration: 1, delay: 0.2 }
+    );
+
+    gsap.fromTo(
+      `.${styles.outline_text}`, 
+      { opacity: 0, y: 50 }, 
+      { opacity: 1, y: 0, duration: 1, delay: 0.4 }
+    );
+    
+    gsap.fromTo(
+      `.${styles.wildlife} .${styles.text_p} p`, 
+      { opacity: 0, y: 50 }, 
+      { opacity: 1, y: 0, duration: 1, stagger: 0.2, delay: 0.6 } 
+    ); 
+
+    gsap.fromTo(
+      `.${styles.wildlife} .${styles.wildlife_picture}`, 
+      { opacity: 0, y: 50 }, 
+      { opacity: 1, y: 0, duration: 1, stagger: 0.2, delay: 0.8, force3D: true } 
+    ); 
+
+  }, []); 
+
   return (
     <div className={`container ${styles.wildlife}`}>
       <div className={`${styles.wildlife_text}`}>
