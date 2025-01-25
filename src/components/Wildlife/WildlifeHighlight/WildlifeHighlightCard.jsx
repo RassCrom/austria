@@ -13,7 +13,7 @@ const WildlifeHighlightCard = ({ animal }) => {
         </h3>
         <div className={styles.card_content__text}>
           <p>Status: {animal['status']}</p>
-          <p>Population: {animal['pop'] || 'n/a'}</p>
+          <p>Population: {animal['pop'] || 'na'}</p>
         </div>
       </div>
     </div>

@@ -33,7 +33,7 @@ function MapContainer() {
         ) : (
           <>
             <Menu display={display} displayMenuHandler={displayMenuHandler} />
-            <MapNavigation displayMenuHandler={displayMenuHandler} />
+            {/* <MapNavigation displayMenuHandler={displayMenuHandler} /> */}
             <Map />
             <MapBottom />
           </>

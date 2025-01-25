@@ -5,7 +5,7 @@ import Clouds from "./Clouds";
 function Loader() {
   return (
     <div className="flex flex-col items-center justify-center z-10 w-full mt-5">
-      <MapLogo />
+      {/* <MapLogo /> */}
       <div className={styles.loader_container}>
         <p className={styles.loader_text}>
           This website uses audio to enhance your experience
