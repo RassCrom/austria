@@ -11,7 +11,7 @@ import styles from '../styles/mapCotaniner.module.css'
 function MapContainer() { 
     const [isLoading, setIsLoading] = useState(true);
     const [display, setDisplay] = useState('hidden');
-
+  
     const displayMenuHandler = () => {
       display === 'hidden' ? setDisplay('flex') : setDisplay('hidden')
     }
@@ -33,7 +33,7 @@ function MapContainer() {
         ) : (
           <>
             <Menu display={display} displayMenuHandler={displayMenuHandler} />
-            {/* <MapNavigation displayMenuHandler={displayMenuHandler} /> */}
+            <MapNavigation displayMenuHandler={displayMenuHandler} />
             <Map />
             <MapBottom />
           </>
