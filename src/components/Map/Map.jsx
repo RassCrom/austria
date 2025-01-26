@@ -14,6 +14,9 @@ const bounds = [
     [18.54018, 49.385606],  // Northeast (upper-right corner)
 ];
 
+let date = new Date();
+// const fixedDate = new Date(date.setHours(13, 0, 0, 0)); // Set hours to 1 PM (13:00)
+
 const startingPoint = {
     center: [13.355, 47.822], //13.355365498295384, Latitude: 47.822553142337966
     zoom: 14, //6.7 20
@@ -38,13 +41,14 @@ function Map() {
         console.error("Mapbox token is missing. Please provide a valid token.");
         return;
       }
+      console.log(date)
     
       const map = new mapboxgl.Map({
           container: mapContainerRef.current,
           style: 'mapbox://styles/mapbox/dark-v11',
           projection: 'globe',
           ...startingPoint,
-          center: [-73.97627, 40.75155],
+        //   center: [-73.97627, 40.75155],
           minZoom: 5,
           maxZoom: 20,
           antialias: true
@@ -61,7 +65,7 @@ function Map() {
               map.getCanvas().getContext('webgl'),
               {                
 				realSunlight: true,
-				// sky: true,
+				sky: true,
 				enableSelectingObjects: true,
 				enableTooltips: true,
               }
@@ -86,6 +90,7 @@ function Map() {
           },
   
           render: function () {
+            window.tb.setSunlight(date, startingPoint.center);
             window.tb.update();
           }
         });
