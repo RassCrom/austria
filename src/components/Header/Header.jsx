@@ -27,7 +27,7 @@ const Header = () => {
           </li>
           <li className="list-item">
             <NavLink
-              to="/explore-austria"
+              to="/test"
               className={({ isActive }) => (isActive ? styles.active : "")}
             >
               explore Austria

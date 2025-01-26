@@ -11,8 +11,8 @@ import MapInfoSide from "./components/Map/MapInfoSide";
 // TODO Create shared layout
 const ROUTER = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Root />}>
-    <Route index element={<WildlifeContainer />} />
-    <Route path="map" element={<MapContainer />} />
+    <Route path='wildlife' element={<WildlifeContainer />} />
+    <Route index path="" element={<MapContainer />} />
     <Route path="test" element={<MapInfoSide />} />
   </Route>
 ));

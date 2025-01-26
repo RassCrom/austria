@@ -68,7 +68,7 @@ function Map() {
             );
             const scale = 3.2; // https://docs.mapbox.com/mapbox-gl-js/assets/metlife-building.gltf
             const options = {
-              obj: 'public/assets/kabanbay.glb',
+              obj: 'assets/kabanbay.glb',
               type: 'gltf',
               scale: { x: scale, y: scale, z: 2.7 },
               units: 'meters',
@@ -76,7 +76,7 @@ function Map() {
             };
   
             window.tb.loadObj(options, (model) => {
-                let s = model.setCoords([-73.976799, 40.754145]);
+                let s = model.setCoords(startingPoint.center);
                 model.setRotation({ x: 0, y: 0, z: 241 });
                 model.addTooltip("Kabanbay Batyr mausoleum", true);
                 model.castShadow = true;
@@ -125,7 +125,7 @@ function Map() {
     
       mapRef.current = map;
     
-    //   map.setMaxBounds(bounds);
+      map.setMaxBounds(bounds);
     
       return () => map.remove();
     }, []);
