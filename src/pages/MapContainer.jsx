@@ -1,4 +1,4 @@
-import Map from "../components/Map/Map";
+import Maps from "../components/Map/Map";
 import MapNavigation from "../components/Map/MapNavigation";
 import MapBottom from "../components/Map/MapBottom/MapBottom";
 import Loader from "../components/Loader/Loader";
@@ -34,7 +34,7 @@ function MapContainer() {
           <>
             <Menu display={display} displayMenuHandler={displayMenuHandler} />
             <MapNavigation displayMenuHandler={displayMenuHandler} />
-            <Map />
+            <Maps />
             <MapBottom />
           </>
         )}

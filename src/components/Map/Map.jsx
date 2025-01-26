@@ -18,14 +18,19 @@ const startingPoint = {
     zoom: 9 //6.7 20
 }
 
-function Map() {
+function Maps() {
     const mapRef = useRef(null); 
     const mapContainerRef = useRef(null);
     const b = 5000
-
+    
     useEffect(() => {
       mapboxgl.accessToken = mapboxToken;
-  
+    
+      if (!mapboxToken) {
+        console.error("Mapbox token is missing. Please provide a valid token.");
+        return;
+      }
+    
       const map = new mapboxgl.Map({
           container: mapContainerRef.current,
           style: 'mapbox://styles/mapbox/dark-v11',
@@ -34,16 +39,16 @@ function Map() {
           minZoom: 5,
           maxZoom: 20
       });
-  
+    
       const modelOrigin = startingPoint.center;
       const modelAltitude = 0;
       const modelRotate = [Math.PI / 2, 0, 0];
-  
+    
       const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
           modelOrigin,
           modelAltitude
       );
-  
+    
       const modelTransform = {
           translateX: modelAsMercatorCoordinate.x,
           translateY: modelAsMercatorCoordinate.y,
@@ -53,58 +58,86 @@ function Map() {
           rotateZ: modelRotate[2],
           scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits()
       };
-  
+    
       const createCustomLayer = (map) => {
           const camera = new THREE.Camera();
           const scene = new THREE.Scene();
           const raycaster = new THREE.Raycaster();
           const mouse = new THREE.Vector2();
-  
+    
           const directionalLight1 = new THREE.DirectionalLight(0xffffff);
           directionalLight1.position.set(0, -70, 100).normalize();
           scene.add(directionalLight1);
-  
+    
           const directionalLight2 = new THREE.DirectionalLight(0xffffff);
           directionalLight2.position.set(0, 70, 100).normalize();
           scene.add(directionalLight2);
-  
+    
           const loader = new GLTFLoader();
-  
+    
           let model;
           loader.load(
               'assets/red_panda.glb',
-              (gltf) => {
+              (gltf) => {   
                   model = gltf.scene;
+          
+                  model.traverse((child) => {
+                      if (child.isMesh) {
+                          child.castShadow = true;
+                          child.receiveShadow = true;
+                      }
+                  });
+          
+                  const markerTexture = new THREE.TextureLoader().load('assets/austria_favicon.png');
+          
+                  const markerGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+                  const markerMaterial = new THREE.MeshStandardMaterial({
+                      map: markerTexture,
+                      side: THREE.DoubleSide,
+                  });
+          
+                  const marker = new THREE.Mesh(markerGeometry, markerMaterial);
+          
+                  marker.position.set(0, 1, 0);
+                  model.add(marker);
+          
                   scene.add(model);
               },
               undefined,
               (error) => console.error('Error loading GLTF model:', error)
           );
-  
+          
+    
           const renderer = new THREE.WebGLRenderer({
               canvas: map.getCanvas(),
               context: map.painter.context.gl,
               antialias: true
           });
-  
+    
           renderer.autoClear = false;
-  
+    
           const handleMouseClick = (event) => {
-              const rect = map.getCanvas().getBoundingClientRect();
-              mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-              mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-  
-              raycaster.setFromCamera(mouse, camera);
-              const intersects = raycaster.intersectObjects(model ? [model] : [], true);
-  
-              if (intersects.length > 0) {
-                 map.getPaintProperty('salamander-layer', 'fill-opacity') === 0
-                  ? map.setPaintProperty('salamander-layer', 'fill-opacity', .5)
-                  : map.setPaintProperty('salamander-layer', 'fill-opacity', 0);
-              }
+            if (!model) return;
+    
+            const rect = map.getCanvas().getBoundingClientRect();
+            mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects([model], true);
+    
+            if (intersects.length > 0) {
+                console.log([model], intersects)
+                // alert('Model clicked')
+                map.getPaintProperty('salamander-layer', 'fill-opacity') === 0
+                ? map.setPaintProperty('salamander-layer', 'fill-opacity', .5)
+                : map.setPaintProperty('salamander-layer', 'fill-opacity', 0);
+            } else {
+                console.log('Click missed model');
+            }
           };
-          map.getCanvas().addEventListener('click', handleMouseClick);
-  
+          map.on('click', handleMouseClick);
+    
           return {
               id: '3d-model',
               type: 'custom',
@@ -122,7 +155,7 @@ function Map() {
                       new THREE.Vector3(0, 0, 1),
                       modelTransform.rotateZ
                   );
-  
+    
                   const m = new THREE.Matrix4().fromArray(matrix);
                   const l = new THREE.Matrix4()
                       .makeTranslation(
@@ -140,7 +173,7 @@ function Map() {
                       .multiply(rotationX)
                       .multiply(rotationY)
                       .multiply(rotationZ);
-  
+    
                   camera.projectionMatrix = m.multiply(l);
                   renderer.resetState();
                   renderer.render(scene, camera);
@@ -148,12 +181,12 @@ function Map() {
               }
           };
       };
-  
+    
       map.on('style.load', () => {
           const customLayer = createCustomLayer(map);
           map.addLayer(customLayer);
       });
-  
+    
       map.on('load', () => {
           fetch('fsg.geojson')
               .then((response) => {
@@ -167,7 +200,7 @@ function Map() {
                       type: 'geojson',
                       data: geojsonData
                   });
-  
+    
                   map.addLayer({
                       id: 'salamander-layer',
                       type: 'fill',
@@ -176,6 +209,7 @@ function Map() {
                       paint: {
                           'fill-color': '#0080ff',
                           'fill-opacity': 0,
+                          'fill-opacity-transition': { duration: 800 }
                       }
                   });
               })
@@ -183,18 +217,18 @@ function Map() {
                   console.error('Error loading geojson data:', error);
               });
       });
-  
+    
       mapRef.current = map;
-  
+    
       map.setMaxBounds(bounds);
-  
+    
       return () => map.remove();
-  }, []);
-  
+    }, []);
+
 
     return (
         <div id="map-container" ref={mapContainerRef}></div>
     )
 };
 
-export default Map;
+export default Maps;

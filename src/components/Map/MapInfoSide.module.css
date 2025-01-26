@@ -1,0 +1,124 @@
+.map_info_outer {
+    position: absolute;
+    right: 0;
+
+    background: url('torn_paper.png');
+    width: 480px;
+    height: 100vh;
+    overflow: hidden;
+
+    z-index: 102;
+}
+
+.map_info {
+    position: relative; 
+    padding: 3rem;
+    height: 100%; /* Make it take full height of .map_info_outer */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+.map_back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    color: inherit;
+    transition: all .6s ease;
+}
+
+.map_back:hover {
+    color: #E9C46A;
+}
+
+.map_back::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.6s ease;
+}
+
+.map_back:hover::after {
+    width: 100%;
+    background-color: #E9C46A;
+}
+
+.arrow_svg {
+    transition: all 0.6s ease;
+  }
+
+.map_back:hover .arrow_svg path {
+    fill: #E9C46A;
+}
+
+.map_info__inner {
+    padding-top: 2.5rem;
+}
+
+.map_info__heading {
+    font-size: 2rem;
+    font-family: 'Playfair Display SC';
+    font-weight: bold;
+
+    background: linear-gradient(to bottom right, #F5CC52, black);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.map_info__stats {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
+}
+
+.map_info__status {
+
+}
+
+.map_info__image {
+    margin-top: 3rem;
+    border-radius: 12px;
+}
+
+.map_info__image img {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map_info__image img:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+.map_info__text {
+    margin-top: 1rem;
+}
+
+.map_info__text {
+    color: #909090;
+    font-weight: 300;
+}
+
+.map_info__slider {
+    margin-top: 1rem;
+}
+
+.map_slider__imgs {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 1.1rem;
+    transition: box-shadow 0.6s ease;
+}
+
+.map_slider__imgs:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+}
