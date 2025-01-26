@@ -1,9 +1,10 @@
 import { useRef, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { Threebox } from 'threebox-plugin';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
+
+import threed from "./threed";
 
 const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -15,13 +16,20 @@ const bounds = [
 
 const startingPoint = {
     center: [13.355, 47.822], //13.355365498295384, Latitude: 47.822553142337966
-    zoom: 9 //6.7 20
+    zoom: 14, //6.7 20
+    pitch: 64.9,
+    bearing: 172.5,
 }
 
-function Maps() {
+function Map() {
     const mapRef = useRef(null); 
     const mapContainerRef = useRef(null);
-    const b = 5000
+
+    function onSelectedChange(e) {
+        let selectedObject = e.detail;
+        let selectedValue = selectedObject.selected;
+        console.log('nice: ', selectedObject)
+    }
     
     useEffect(() => {
       mapboxgl.accessToken = mapboxToken;
@@ -36,156 +44,53 @@ function Maps() {
           style: 'mapbox://styles/mapbox/dark-v11',
           projection: 'globe',
           ...startingPoint,
+          center: [-73.97627, 40.75155],
           minZoom: 5,
-          maxZoom: 20
+          maxZoom: 20,
+          antialias: true
       });
-    
-      const modelOrigin = startingPoint.center;
-      const modelAltitude = 0;
-      const modelRotate = [Math.PI / 2, 0, 0];
-    
-      const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
-          modelOrigin,
-          modelAltitude
-      );
-    
-      const modelTransform = {
-          translateX: modelAsMercatorCoordinate.x,
-          translateY: modelAsMercatorCoordinate.y,
-          translateZ: modelAsMercatorCoordinate.z,
-          rotateX: modelRotate[0],
-          rotateY: modelRotate[1],
-          rotateZ: modelRotate[2],
-          scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits()
-      };
-    
-      const createCustomLayer = (map) => {
-          const camera = new THREE.Camera();
-          const scene = new THREE.Scene();
-          const raycaster = new THREE.Raycaster();
-          const mouse = new THREE.Vector2();
-    
-          const directionalLight1 = new THREE.DirectionalLight(0xffffff);
-          directionalLight1.position.set(0, -70, 100).normalize();
-          scene.add(directionalLight1);
-    
-          const directionalLight2 = new THREE.DirectionalLight(0xffffff);
-          directionalLight2.position.set(0, 70, 100).normalize();
-          scene.add(directionalLight2);
-    
-          const loader = new GLTFLoader();
-    
-          let model;
-          loader.load(
-              'assets/red_panda.glb',
-              (gltf) => {   
-                  model = gltf.scene;
-          
-                  model.traverse((child) => {
-                      if (child.isMesh) {
-                          child.castShadow = true;
-                          child.receiveShadow = true;
-                      }
-                  });
-          
-                  const markerTexture = new THREE.TextureLoader().load('assets/austria_favicon.png');
-          
-                  const markerGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-                  const markerMaterial = new THREE.MeshStandardMaterial({
-                      map: markerTexture,
-                      side: THREE.DoubleSide,
-                  });
-          
-                  const marker = new THREE.Mesh(markerGeometry, markerMaterial);
-          
-                  marker.position.set(0, 1, 0);
-                  model.add(marker);
-          
-                  scene.add(model);
-              },
-              undefined,
-              (error) => console.error('Error loading GLTF model:', error)
-          );
-          
-    
-          const renderer = new THREE.WebGLRenderer({
-              canvas: map.getCanvas(),
-              context: map.painter.context.gl,
-              antialias: true
-          });
-    
-          renderer.autoClear = false;
-    
-          const handleMouseClick = (event) => {
-            if (!model) return;
-    
-            const rect = map.getCanvas().getBoundingClientRect();
-            mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-            mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-    
-            raycaster.setFromCamera(mouse, camera);
-            const intersects = raycaster.intersectObjects([model], true);
-    
-            if (intersects.length > 0) {
-                console.log([model], intersects)
-                // alert('Model clicked')
-                map.getPaintProperty('salamander-layer', 'fill-opacity') === 0
-                ? map.setPaintProperty('salamander-layer', 'fill-opacity', .5)
-                : map.setPaintProperty('salamander-layer', 'fill-opacity', 0);
-            } else {
-                console.log('Click missed model');
-            }
-          };
-          map.on('click', handleMouseClick);
-    
-          return {
-              id: '3d-model',
-              type: 'custom',
-              renderingMode: '3d',
-              render: (gl, matrix) => {
-                  const rotationX = new THREE.Matrix4().makeRotationAxis(
-                      new THREE.Vector3(1, 0, 0),
-                      modelTransform.rotateX
-                  );
-                  const rotationY = new THREE.Matrix4().makeRotationAxis(
-                      new THREE.Vector3(0, 1, 0),
-                      modelTransform.rotateY
-                  );
-                  const rotationZ = new THREE.Matrix4().makeRotationAxis(
-                      new THREE.Vector3(0, 0, 1),
-                      modelTransform.rotateZ
-                  );
-    
-                  const m = new THREE.Matrix4().fromArray(matrix);
-                  const l = new THREE.Matrix4()
-                      .makeTranslation(
-                          modelTransform.translateX,
-                          modelTransform.translateY,
-                          modelTransform.translateZ
-                      )
-                      .scale(
-                          new THREE.Vector3(
-                              modelTransform.scale * b,
-                              -modelTransform.scale * b,
-                              modelTransform.scale * b
-                          )
-                      )
-                      .multiply(rotationX)
-                      .multiply(rotationY)
-                      .multiply(rotationZ);
-    
-                  camera.projectionMatrix = m.multiply(l);
-                  renderer.resetState();
-                  renderer.render(scene, camera);
-                  map.triggerRepaint();
-              }
-          };
-      };
-    
+
       map.on('style.load', () => {
-          const customLayer = createCustomLayer(map);
-          map.addLayer(customLayer);
+        map.addLayer({
+          id: 'custom-threebox-model',
+          type: 'custom',
+          renderingMode: '3d',
+          onAdd: function () {
+            window.tb = new Threebox(
+              map,
+              map.getCanvas().getContext('webgl'),
+              {                
+				realSunlight: true,
+				// sky: true,
+				enableSelectingObjects: true,
+				enableTooltips: true,
+              }
+            );
+            const scale = 3.2; // https://docs.mapbox.com/mapbox-gl-js/assets/metlife-building.gltf
+            const options = {
+              obj: 'public/assets/kabanbay.glb',
+              type: 'gltf',
+              scale: { x: scale, y: scale, z: 2.7 },
+              units: 'meters',
+              rotation: { x: 90, y: -90, z: 0 }
+            };
+  
+            window.tb.loadObj(options, (model) => {
+                let s = model.setCoords([-73.976799, 40.754145]);
+                model.setRotation({ x: 0, y: 0, z: 241 });
+                model.addTooltip("Kabanbay Batyr mausoleum", true);
+                model.castShadow = true;
+                s.addEventListener('SelectedChange', onSelectedChange, false);
+                window.tb.add(model);
+            });
+          },
+  
+          render: function () {
+            window.tb.update();
+          }
+        });
       });
+
     
       map.on('load', () => {
           fetch('fsg.geojson')
@@ -220,7 +125,7 @@ function Maps() {
     
       mapRef.current = map;
     
-      map.setMaxBounds(bounds);
+    //   map.setMaxBounds(bounds);
     
       return () => map.remove();
     }, []);
@@ -231,4 +136,4 @@ function Maps() {
     )
 };
 
-export default Maps;
+export default Map;
