@@ -56,7 +56,7 @@ const WildlifeHero = () => {
         </div>
       </div>
       <div className={`${styles.wildlife_picture}`}>
-        <img src="assets\deer.png" alt="deer" />
+        <img src="images\deer.png" alt="deer" />
       </div>
     </div>
   );

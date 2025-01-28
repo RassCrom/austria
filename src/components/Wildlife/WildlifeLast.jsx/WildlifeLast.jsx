@@ -67,13 +67,13 @@ const WildlifeLast = () => {
                 <div className={`${styles.btn_last} flex`}>
                     <a className={`flex justify-center items-center gap-5 my-10`} href="">
                         {/* REPLACE WITH SVG */}
-                        <img src="assets/button-arr.svg" alt="" />
+                        <img src="svgs/button-arr.svg" alt="" />
                         Learn more on the map
                     </a>
                 </div>
             </div>
             <div className={`${styles.wildlife_picture}`}>
-                <img src="assets/fox.png" alt="deer" />
+                <img src="images/fox.png" alt="deer" />
             </div>
         </div>
     );

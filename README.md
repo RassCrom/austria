@@ -18,7 +18,7 @@ You can see the live demo of this project [here](#https://austria-msc.netlify.ap
 To set up this project locally, follow these steps:
 
 1. Clone the repository:
-    git clone https://github.com/your-username/map-navigation.git
+    git clone 
 
 2. Install dependencies:
     cd map-navigation

@@ -25,7 +25,7 @@ const MapInfoSide = () => {
             <p className={styles.map_info__population}>Population: unknown</p>
           </div>
           <div className={styles.map_info__image}>
-            <img src="fire_salamander.png" alt="fire salamander" />
+            <img src="images/fire_salamander.png" alt="fire salamander" />
           </div>
           <div className={styles.map_info__text}>
             <p>
@@ -41,13 +41,13 @@ const MapInfoSide = () => {
               pagination={{ clickable: true }}
             >
               <SwiperSlide>
-                <img className={styles.map_slider__imgs} src="fire_salamander_1.png" alt="Fire Salamander Image 1" />
+                <img className={styles.map_slider__imgs} src="images/fire_salamander_1.png" alt="Fire Salamander Image 1" />
               </SwiperSlide>
               <SwiperSlide>
-                <img className={styles.map_slider__imgs} src="fire_salamander_2.png" alt="Fire Salamander Image 2" />
+                <img className={styles.map_slider__imgs} src="images/fire_salamander_2.png" alt="Fire Salamander Image 2" />
               </SwiperSlide>
               <SwiperSlide>
-                <img className={styles.map_slider__imgs} src="fire_salamander.png" alt="Fire Salamander Image 3" />
+                <img className={styles.map_slider__imgs} src="images/fire_salamander.png" alt="Fire Salamander Image 3" />
               </SwiperSlide>
             </Swiper>
           </div>
