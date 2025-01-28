@@ -15,27 +15,19 @@
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: 0.1em;
-    color: #ffffff; /* Text color for "Wildlife" */
+    color: #ffffff;
 
     margin-bottom: 4rem;
 }
 
 .outline_text {
-    color: transparent; /* No fill */
-    -webkit-text-stroke: 1px white; /* White outline */
+    color: transparent;
+    -webkit-text-stroke: 1px white;
     font-weight: 400;
 }
 
 .wildlife_text, .wildlife_picture {
     flex: 1 1 50%; /* Make both sections take 50% of the container's width */
-}
-
-.wildlife_text {
-
-}
-
-.wildlife_picture {
-
 }
 
 .text_p {

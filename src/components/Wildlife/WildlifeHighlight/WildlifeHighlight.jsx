@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import WildlifeHighlightCard from './WildlifeHighlightCard';
 import { fetchAnimalData } from '../../../api/FetchAnimalData';
 import styles from '../Wildlife.module.css';

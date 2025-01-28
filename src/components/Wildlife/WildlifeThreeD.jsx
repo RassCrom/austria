@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
@@ -15,13 +15,13 @@ const WildlifeThreeD = () => {
         mountRef.current.appendChild(renderer.domElement);
 
         // Set background color
-        scene.background = new THREE.Color('#212529'); // Dark gray color
+        scene.background = new THREE.Color('#212529');
 
         // Add lighting
-        const ambientLight = new THREE.AmbientLight(0x404040, 5); // Soft white light
+        const ambientLight = new THREE.AmbientLight(0x404040, 5);
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 5); // White directional light
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
         directionalLight.position.set(5, 5, 5).normalize();
         scene.add(directionalLight);
 
@@ -30,13 +30,13 @@ const WildlifeThreeD = () => {
             const model = gltf.scene;
 
             // Scale the model to fit the scene
-            model.scale.set(0.1, 0.1, 0.1); // Adjust the scale as needed
+            model.scale.set(0.1, 0.1, 0.1);
 
             // Center the model in the scene
             const box = new THREE.Box3().setFromObject(model);
             const center = new THREE.Vector3();
             box.getCenter(center);
-            model.position.sub(center); // Center the model
+            model.position.sub(center);
 
             scene.add(model);
 
@@ -47,14 +47,12 @@ const WildlifeThreeD = () => {
         // Position the camera
         camera.position.z = 5;
 
-        // Animation loop
         const animate = () => {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
         };
         animate();
 
-        // Cleanup function
         return () => {
             mountRef.current.removeChild(renderer.domElement);
             renderer.dispose();

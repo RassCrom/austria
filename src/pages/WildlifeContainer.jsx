@@ -5,7 +5,6 @@ import WildlifeLast from '../components/Wildlife/WildlifeLast.jsx/WildlifeLast';
 import WildlifeHighlight from '../components/Wildlife/WildlifeHighlight/WildlifeHighlight';
 import Loader from '../components/Loader/Loader';
 
-import styles from '../styles/WildlifeContainer.module.css';
 import WildlifeThreeD from '../components/Wildlife/WildlifeThreeD';
 
 const WildlifeContainer = ({ setIsSoundOn }) => {
