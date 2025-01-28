@@ -21,7 +21,7 @@ function App() {
   const [isSoundOn, setIsSoundOn] = useState(false);
 
   useEffect(() => {
-    const newAudio = new Audio('street.mp3');
+    const newAudio = new Audio('audios/street.mp3');
     newAudio.loop = true;
     newAudio.volume = 0.5;
 
