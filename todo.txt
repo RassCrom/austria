@@ -1,5 +1,7 @@
 1/28/25
-- Structure public folder
+- Structure public folder [+]
+
+- Adding 3D scene to the story scrolling
 
 - Create template for different tabs (not map)
 -- Template for Wildlife, Nature, Historical places

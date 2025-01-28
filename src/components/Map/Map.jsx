@@ -40,6 +40,7 @@ function Map() {
           ...startingPoint,
           minZoom: 5,
           maxZoom: 20,
+          hash: true,
           antialias: true
       });
       
@@ -56,7 +57,10 @@ function Map() {
             tileSize: 512,
             maxzoom: 14,
           });
-
+          
+          const zoomBasedReveal = (value) => {
+            return ['interpolate', ['linear'], ['zoom'], 11, 0.0, 13, value];
+          };
           map.setFog({
             range: [-0.5, 1.5], // Controls the starting and ending points of the fog effect
             'horizon-blend': .4,
@@ -66,10 +70,24 @@ function Map() {
             'star-intensity': 0.05
           });
 
+          // console.log(map.setSnow)
+
+          map.setSnow({
+            density: zoomBasedReveal(.3),
+            intensity: 1, // velocity of falling down
+            'center-thinning': 0.1,
+            direction: [0, 50],
+            opacity: 1.0,
+            color: `#ffffff`,
+            'flake-size': 0.35,
+            vignette: zoomBasedReveal(0.3),
+            'vignette-color': `#ffffff`
+          });
+
           // Enable the terrain
           map.setTerrain({ source: 'mapbox-dem', exaggeration: 1 });
 
-          const salamanderRes = await axios('fsg.geojson');
+          const salamanderRes = await axios('/layers/fsg.geojson');
 
           if (salamanderRes.data) {
             map.addSource('salamander', {
@@ -90,7 +108,7 @@ function Map() {
             });
           }
           
-          const test_e = await axios('/sptial/test_elev.geojson');
+          const test_e = await axios('/layers/test_elev.geojson');
           mapRef.current.addSource('test_e', {
             type: 'geojson',
             data: test_e.data
@@ -126,7 +144,7 @@ function Map() {
             },
           });
         
-          map.loadImage('/arrow.png', (error, image) => {
+          map.loadImage('/images/arrow.png', (error, image) => {
             if (error) throw error;
         
             map.addImage('cat-icon', image);

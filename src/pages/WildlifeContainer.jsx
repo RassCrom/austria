@@ -6,6 +6,7 @@ import WildlifeHighlight from '../components/Wildlife/WildlifeHighlight/Wildlife
 import Loader from '../components/Loader/Loader';
 
 import styles from '../styles/WildlifeContainer.module.css';
+import WildlifeThreeD from '../components/Wildlife/WildlifeThreeD';
 
 const WildlifeContainer = ({ setIsSoundOn }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -71,10 +72,11 @@ const WildlifeContainer = ({ setIsSoundOn }) => {
       }
     };
   }, [handleWheelScroll, isLoading]);
+  const t = false
 
   return (
     <>
-      {isLoading
+      {t
         ? (<Loader setIsSoundOn={setIsSoundOn} />) 
         : (<div ref={scrollPos} onScroll={handleScrollProgress}
               style={{
@@ -110,7 +112,7 @@ const WildlifeContainer = ({ setIsSoundOn }) => {
                   }}></div>
               </div>
             </div>
-
+            <WildlifeThreeD />
             <WildlifeHero />
             <WildlifeHighlight />
             <WildlifeLast />
