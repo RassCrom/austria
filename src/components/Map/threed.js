@@ -26,17 +26,17 @@ export default function threed(startingPoint, map, ) {
                         enableTooltips: true,
                     }
                 );
-                const scale = 100;
+                const scale = 3.2;
                 const options = {
-                    obj: 'assets/kabanbay.glb',
+                    obj: 'models/palace.glb',
                     type: 'gltf',
-                    scale: { x: scale, y: scale, z: 95 },
+                    scale: { x: scale, y: scale, z: 2.7 },
                     units: 'meters',
                     rotation: { x: 90, y: -90, z: 0 }
                 };
 
                 window.tb.loadObj(options, (model) => {
-                    let s = model.setCoords(startingPoint.center);
+                    let s = model.setCoords([...startingPoint.center, 487]);
                     model.setRotation({ x: 0, y: 0, z: 241 });
                     model.addTooltip("Kabanbay Batyr mausoleum", true);
                     model.castShadow = true;

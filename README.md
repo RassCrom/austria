@@ -11,25 +11,26 @@ This project is a map-based application built with React and Mapbox GL JS...
 
 ## Demo
 
-You can see the live demo of this project [here](#).
+You can see the live demo of this project [here](#https://austria-msc.netlify.app/).
 
 ## Installation
 
 To set up this project locally, follow these steps:
 
 1. Clone the repository:
-
-    ```bash
     git clone https://github.com/your-username/map-navigation.git
+
 2. Install dependencies:
     cd map-navigation
     yarn install
+
 3. Create a .env file in the root of the project and add your Mapbox token:
     VITE_MAPBOX_TOKEN=your_mapbox_token_here
+
 4. Start the development server:
     yarn run dev
 
-Your application should now be running at http://localhost:5174
+Your application should now be running at http://localhost:5173
 
 ## Usage
 

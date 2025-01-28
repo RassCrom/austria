@@ -6,9 +6,10 @@ const MapBottom = () => {
             <MapBottomSlider /> 
             <div className="w-auto h-auto absolute right-0 bottom-4 px-8 py-4">
                 <a href="#">
+                    {/* REPLACE WITH SVG */}
                     <img 
                         className="md:w-6 md:h-6 object-contain" 
-                        src="assets/sound.svg" 
+                        src="svgs/sound.svg" 
                         alt="Sound Icon"
                     />
                 </a>

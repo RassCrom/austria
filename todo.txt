@@ -1,0 +1,31 @@
+1/28/25
+- Structure public folder
+
+- Create template for different tabs (not map)
+-- Template for Wildlife, Nature, Historical places
+-- Make excel structure (json) for main page
+
+- Create store
+-- Create sound slice and selector
+-- Integrate sound state
+
+- Create excel table with all animals and columns 
+-- Include url paths into the table
+-- 
+
+- Finish MapInfoSide component
+
+- Create template for 3D and 2D layers
+
+- Mobile version
+
+- Refactor folder structure
+
+- Adding translate / parallax effect while scrolling
+
+- Integrate database
+-- Create PostgreSQL instance
+-- t-rex tileserver
+
+- Back-End integration
+-- Express js communication with database

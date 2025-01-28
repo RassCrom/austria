@@ -45,20 +45,30 @@ function Map() {
       
       mapRef.current = map;
       // TODO Refactor the function
-      // threed(startingPoint, map);
+      threed(startingPoint, map);
       // TODO make template of loading layers
       map.on('load', async () => {
         try {
           
           map.addSource('mapbox-dem', {
             type: 'raster-dem',
-            url: 'mapbox://mapbox.terrain-rgb', // Use Mapbox's terrain-rgb tileset
+            url: 'mapbox://mapbox.terrain-rgb',
             tileSize: 512,
             maxzoom: 14,
           });
-        
+
+          map.setFog({
+            range: [-0.5, 1.5], // Controls the starting and ending points of the fog effect
+            'horizon-blend': .4,
+            color: '#2a2a2a', // The main fog color
+            'high-color': '#4b4b4b', 
+            'space-color': '#1a1a1a',
+            'star-intensity': 0.05
+          });
+
           // Enable the terrain
-          // map.setTerrain({ source: 'mapbox-dem', exaggeration: 1.5 });
+          map.setTerrain({ source: 'mapbox-dem', exaggeration: 1 });
+
           const salamanderRes = await axios('fsg.geojson');
 
           if (salamanderRes.data) {
@@ -133,7 +143,7 @@ function Map() {
                 'symbol-z-elevate': true
               },
               paint: {
-                'icon-translate': [0, 0], // Adjust the altitude appearance if needed
+                'icon-translate': [0, 0],
               },
             });
           });
