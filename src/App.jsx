@@ -12,8 +12,8 @@ import MapInfoSide from "./components/Map/MapInfoSide";
 const ROUTER = (setIsSoundOn) => createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Root />}>
     <Route index path='' element={<WildlifeContainer setIsSoundOn={setIsSoundOn} />} />
-    <Route path="map" element={<MapContainer setIsSoundOn={setIsSoundOn} />} />
-    <Route path="test" element={<MapInfoSide />} />
+    <Route path="/map" element={<MapContainer setIsSoundOn={setIsSoundOn} />} />
+    <Route path="/test" element={<MapInfoSide />} />
   </Route>
 ));
 
