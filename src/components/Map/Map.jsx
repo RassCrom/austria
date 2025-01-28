@@ -16,9 +16,9 @@ const bounds = [
 
 const startingPoint = {
     center: [13.355, 47.822],
-    zoom: 14,
-    pitch: 64.9,
-    bearing: 172.5,
+    zoom: 18,
+    pitch: 52,
+    bearing: 40,
 }
 
 function Map() {
@@ -136,7 +136,7 @@ function Map() {
                   type: 'Feature',
                   geometry: {
                     type: 'Point',
-                    coordinates: [13.355, 47.822], 
+                    coordinates: [13.355586, 47.821561], 
                   },
                   properties: {},
                 },
