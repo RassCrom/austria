@@ -112,7 +112,7 @@ const WildlifeContainer = ({ setIsSoundOn }) => {
                   }}></div>
               </div>
             </div>
-            <WildlifeThreeD />
+            {/* <WildlifeThreeD /> */}
             <WildlifeHero />
             <WildlifeHighlight />
             <WildlifeLast />
