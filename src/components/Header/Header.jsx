@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "./Logo";
 import styles from "../../styles/Navigation.module.css";
 import { NavLink } from "react-router-dom";
@@ -42,7 +41,7 @@ const Header = () => {
 
       <nav className={`${styles.nav} ${styles.rightNav}`}>
         <ul className="nav-list flex gap-10">
-          <li className="list-item">
+          {/* <li className="list-item">
             <NavLink
               to="/library"
               className={({ isActive }) => (isActive ? styles.active : "")}
@@ -57,7 +56,7 @@ const Header = () => {
             >
               red list
             </NavLink>
-          </li>
+          </li> */}
           <li className="list-item">
             <NavLink
               to="/map"

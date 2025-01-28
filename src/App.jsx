@@ -1,5 +1,5 @@
-import { Navigate, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
-import { useEffect } from 'react';
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 import './styles/App.css';
 
@@ -9,15 +9,17 @@ import Root from "./pages/Root";
 import MapInfoSide from "./components/Map/MapInfoSide";
 
 // TODO Create shared layout
-const ROUTER = createBrowserRouter(createRoutesFromElements(
+const ROUTER = (setIsSoundOn) => createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Root />}>
-    <Route path='wildlife' element={<WildlifeContainer />} />
-    <Route index path="" element={<MapContainer />} />
+    <Route index path='' element={<WildlifeContainer setIsSoundOn={setIsSoundOn} />} />
+    <Route path="map" element={<MapContainer setIsSoundOn={setIsSoundOn} />} />
     <Route path="test" element={<MapInfoSide />} />
   </Route>
 ));
 
 function App() {
+  const [isSoundOn, setIsSoundOn] = useState(false);
+
   useEffect(() => {
     const newAudio = new Audio('street.mp3');
     newAudio.loop = true;
@@ -28,17 +30,12 @@ function App() {
         console.error('Audio playback failed:', error);
       });
     };
-
-    window.addEventListener('click', playAudio, { once: true });
-
-    return () => {
-      window.removeEventListener('click', playAudio);
-    };
-  }, []);
+    if (isSoundOn) playAudio();
+  }, [isSoundOn]);
 
   return (
     <>
-      <RouterProvider router={ROUTER} />
+      <RouterProvider router={ROUTER(setIsSoundOn)} />
     </>
   );
 }

@@ -11,23 +11,22 @@ const WildlifeLast = () => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    // Trigger GSAP animations
                     gsap.from(
                         `.${styles.heading_secondary}`,
-                        { opacity: 0, y: 50 },
-                        // { opacity: 1, y: 0, duration: 1, delay: 0.2 }
+                        { opacity: 0, y: 50, duration: 1, delay: 0.2 },
+                        // { opacity: 1, y: 0 }
                     );
 
-                    gsap.fromTo(
+                    gsap.from(
                         `.${styles.list_item__last}`,
-                        { opacity: 0, y: 50 },
-                        { opacity: 1, y: 0, duration: 1, stagger: 0.2, delay: 0.6 }
+                        { opacity: 0, y: 50, duration: 1, stagger: 0.2, delay: 0.6 },
+                        // { opacity: 1, y: 0, duration: 1, stagger: 0.2, delay: 0.6 }
                     );
 
-                    gsap.fromTo(
+                    gsap.from(
                         `.${styles.wildlife_last} .${styles.text_p} p`,
-                        { opacity: 0, y: 50 },
-                        { opacity: 1, y: 0, duration: 1, delay: 0.4 }
+                        { opacity: 0, y: 50, duration: 1, delay: 0.4 },
+                        // { opacity: 1, y: 0, duration: 1, delay: 0.4 }
                     );
 
        

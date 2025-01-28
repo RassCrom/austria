@@ -1,12 +1,26 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+
 import WildlifeHero from '../components/Wildlife/WildlifeHero/WildlifeHero';
 import WildlifeLast from '../components/Wildlife/WildlifeLast.jsx/WildlifeLast';
 import WildlifeHighlight from '../components/Wildlife/WildlifeHighlight/WildlifeHighlight';
+import Loader from '../components/Loader/Loader';
+
 import styles from '../styles/WildlifeContainer.module.css';
 
-const WildlifeContainer = () => {
+const WildlifeContainer = ({ setIsSoundOn }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const scrollPos = useRef();
   const progressBar = useRef();
+
+  useEffect(() => {
+    const loadComponents = async () => {
+      // Simulate a 2-second delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setIsLoading(false);
+    };
+
+    loadComponents();
+  }, []);
 
   // BUG - when using touchpad to scroll right or left it starts to behavior weird and scrolling is not happening. starts to dragging
   const handleScrollProgress = useCallback(() => {
@@ -56,48 +70,52 @@ const WildlifeContainer = () => {
         container.removeEventListener('wheel', handleWheelScroll);
       }
     };
-  }, [handleWheelScroll]);
+  }, [handleWheelScroll, isLoading]);
 
   return (
-    <div ref={scrollPos} onScroll={handleScrollProgress}
-      style={{
-        position: 'fixed',
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        overflowY: 'hidden',
-        overflowX: 'scroll',
-      }}
-    >
-      <div
-      style={{
-        position: 'fixed',
-        width: '100%',
-        bottom: '0',
-        zIndex: '100'
-      }}
-      >
+    <>
+      {isLoading
+        ? (<Loader setIsSoundOn={setIsSoundOn} />) 
+        : (<div ref={scrollPos} onScroll={handleScrollProgress}
+              style={{
+                position: 'fixed',
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                overflowY: 'hidden',
+                overflowX: 'scroll',
+            }}
+          >
+            <div
+              style={{
+                position: 'fixed',
+                width: '100%',
+                bottom: '0',
+                zIndex: '100'
+              }}
+            >
 
-        <div
-          style={{
-            width: '100%',
-            height: '8px',
-            backgroundColor: "#ccc",
-          }}>
-          <div ref={progressBar}
-            style={{
-              width: '0%',
-              height: '8px',
-              backgroundColor: "#04AA6D",
-            }}></div>
-        </div>
-      </div>
+              <div
+                style={{
+                  width: '100%',
+                  height: '8px',
+                  backgroundColor: "#ccc",
+                }}>
+                <div ref={progressBar}
+                  style={{
+                    width: '0%',
+                    height: '8px',
+                    backgroundColor: "#04AA6D",
+                  }}></div>
+              </div>
+            </div>
 
-      <WildlifeHero />
-      <WildlifeHighlight />
-      <WildlifeLast />
-    </div>
+            <WildlifeHero />
+            <WildlifeHighlight />
+            <WildlifeLast />
+          </div>)}
+    </>
   );
 };
 

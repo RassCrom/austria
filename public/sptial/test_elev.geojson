@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "test_elev",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 13.3549435, 47.8220245 ], [ 13.3550741, 47.8220329 ], [ 13.3550766, 47.8219553 ], [ 13.3549485, 47.8219503 ], [ 13.3549435, 47.8220245 ] ] ] } }
+]
+}
