@@ -35,7 +35,7 @@ function Map() {
     
       const map = new mapboxgl.Map({
           container: mapContainerRef.current,
-          style: 'mapbox://styles/mapbox/dark-v11',
+          style: 'mapbox://styles/mapbox/standard',
           projection: 'globe',
           ...startingPoint,
           minZoom: 5,
@@ -69,8 +69,10 @@ function Map() {
             'space-color': '#1a1a1a',
             'star-intensity': 0.05
           });
+          map.setConfigProperty('basemap', 'lightPreset', 'dusk');
+          const currentLightPreset = map.getConfigProperty('basemap', 'lightPreset');
+          console.log(currentLightPreset);
 
-          // console.log(map.setSnow)
 
           map.setSnow({
             density: zoomBasedReveal(.3),
@@ -84,7 +86,6 @@ function Map() {
             'vignette-color': `#ffffff`
           });
 
-          // Enable the terrain
           map.setTerrain({ source: 'mapbox-dem', exaggeration: 1 });
 
           const salamanderRes = await axios('/layers/fsg.geojson');
