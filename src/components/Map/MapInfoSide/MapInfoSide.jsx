@@ -6,7 +6,6 @@ const MapInfoSide = () => {
   const { data, error, isLoading } = useFetchData(
     "public/jsons/animals.json"
   );
-  console.log(data);
 
   if (isLoading) return "Loading...";
 
