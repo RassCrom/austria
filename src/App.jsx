@@ -6,7 +6,7 @@ import './styles/App.css';
 import MapContainer from './pages/MapContainer';
 import WildlifeContainer from "./pages/WildlifeContainer";
 import Root from "./pages/Root";
-import MapInfoSide from "./components/Map/MapInfoSide";
+import MapInfoSide from "./components/Map/MapInfoSide/MapInfoSide";
 
 // TODO Create shared layout
 const ROUTER = (setIsSoundOn) => createBrowserRouter(createRoutesFromElements(

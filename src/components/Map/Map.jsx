@@ -51,13 +51,6 @@ function Map() {
       map.on('load', async () => {
         try {
           
-          map.addSource('mapbox-dem', {
-            type: 'raster-dem',
-            url: 'mapbox://mapbox.terrain-rgb',
-            tileSize: 512,
-            maxzoom: 14,
-          });
-          
           const zoomBasedReveal = (value) => {
             return ['interpolate', ['linear'], ['zoom'], 11, 0.0, 13, value];
           };
@@ -84,6 +77,13 @@ function Map() {
             'flake-size': 0.35,
             vignette: zoomBasedReveal(0.3),
             'vignette-color': `#ffffff`
+          });
+          
+          map.addSource('mapbox-dem', {
+            type: 'raster-dem',
+            url: 'mapbox://mapbox.terrain-rgb',
+            tileSize: 512,
+            maxzoom: 14,
           });
 
           map.setTerrain({ source: 'mapbox-dem', exaggeration: 1 });

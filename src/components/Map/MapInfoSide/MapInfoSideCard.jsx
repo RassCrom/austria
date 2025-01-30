@@ -1,9 +1,9 @@
-import styles from './MapInfoSide.module.css'
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-const MapInfoSide = () => {
+import styles from './MapInfoSide.module.css'
+
+const MapInfoSideCard = ({ animal }) => {
   return (
     <div className={styles.map_info_outer}>
       <div className={styles.map_info}>
@@ -17,23 +17,22 @@ const MapInfoSide = () => {
         </button>
         <div className={styles.map_info__inner}>
           <h2 className={styles.map_info__heading}>
-            Fire Salamander
+            {animal.title}
           </h2>
           <div className={styles.map_info__stats}>
-            <p className={styles.map_info__status}>Status: Vulnerable</p>
-            <p className={styles.map_info__life}>Lifespan: 7-15 year</p>
-            <p className={styles.map_info__population}>Population: unknown</p>
+            <p className={styles.map_info__status}>Status: {animal.status}</p>
+            <p className={styles.map_info__life}>Lifespan: {animal.lifespan}</p>
+            <p className={styles.map_info__population}>Population: {animal.pop_i || 'Unknown'}</p>
           </div>
           <div className={styles.map_info__image}>
-            <img src="images/fire_salamander.png" alt="fire salamander" />
+            <img src={`images/${animal.pic_main}`} alt={`${animal.title} Image`} />
           </div>
           <div className={styles.map_info__text}>
             <p>
-              A number of large, stable subpopulations of this salamander exist in Central Europe. Some local subpopulation declines have been observed over parts of its range (e.g. through habitat loss, introduced predatory fish, and increased aridity in Spain). A severe decline has been reported in the Netherlands. Some local subpopulations have disappeared, and its population density has also been reduced in parts of Spain. In Italy, localized declines due to habitat loss have been observed in Apen (F. Ficetola and R. Manenti pers. comm. September 2019). Due to the ongoing decline in the extent and quality of its habitat and the threat of Bsal, the population is continuing to decrease.
+              {animal.text_main}
             </p>
           </div>
           <div className={styles.map_info__slider}>
-            {/* Swiper Slider */}
             <Swiper
               spaceBetween={14}
               slidesPerView={2}
@@ -41,13 +40,13 @@ const MapInfoSide = () => {
               pagination={{ clickable: true }}
             >
               <SwiperSlide>
-                <img className={styles.map_slider__imgs} src="images/fire_salamander_1.png" alt="Fire Salamander Image 1" />
+                <img className={styles.map_slider__imgs} src={`images/${animal.pic_1}`} alt={`${animal.title} Image 1`} />
               </SwiperSlide>
               <SwiperSlide>
-                <img className={styles.map_slider__imgs} src="images/fire_salamander_2.png" alt="Fire Salamander Image 2" />
+                <img className={styles.map_slider__imgs} src={`images/${animal.pic_2}`} alt={`${animal.title} Image 2`} />
               </SwiperSlide>
               <SwiperSlide>
-                <img className={styles.map_slider__imgs} src="images/fire_salamander.png" alt="Fire Salamander Image 3" />
+                <img className={styles.map_slider__imgs} src={`images/${animal.pic_3}`} alt={`${animal.title} Image 3`} />
               </SwiperSlide>
             </Swiper>
           </div>
@@ -60,4 +59,4 @@ const MapInfoSide = () => {
   );
 };
 
-export default MapInfoSide;
+export default MapInfoSideCard;

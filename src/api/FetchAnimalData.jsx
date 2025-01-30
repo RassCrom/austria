@@ -1,6 +1,7 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 
-export const fetchAnimalData = async () => {
+const fetchAnimalData = async () => {
     try {
         const res = await axios('/jsons/animals.json');
         // Validate the response structure before accessing

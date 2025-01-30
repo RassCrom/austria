@@ -1,25 +1,16 @@
-import {useEffect, useState} from 'react';
+import { useFetchAnimals } from '../../../store/features/animal/animalSlice';
 import WildlifeHighlightCard from './WildlifeHighlightCard';
-import { fetchAnimalData } from '../../../api/FetchAnimalData';
 import styles from '../Wildlife.module.css';
 
 const WildlifeHighlight = () => {
-  const [animal, setAnimal] = useState([]);
-
-  const getAnimalData = async () => {
-    const res = await fetchAnimalData();
-    setAnimal(res)
-  }
-
-  useEffect(() => {
-    getAnimalData();
-  }, [])
-
+  const { data, error, isLoading } = useFetchAnimals();
+  const animal = data
+  console.log(data)
 
   return (
     <div className={styles.wildlife_highlight}>
       {animal.length > 0 
-        ? animal.slice(1).map(
+        ? animal.slice(0).map(
           (el, idx) => <WildlifeHighlightCard key={idx} animal={el} />
         )
         : 'Loading'}
