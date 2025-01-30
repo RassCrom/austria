@@ -16,7 +16,7 @@ const WildlifeHighlight = () => {
   return (
     <div className={styles.wildlife_highlight}>
       {data.length > 0
-        ? data.map((ani, idx) => <WildlifeHighlightCard key={idx} animal={ani} />)
+        ? data.map((el, idx) => <WildlifeHighlightCard key={idx} animal={el} />)
         : "Loading"}
     </div>
   );

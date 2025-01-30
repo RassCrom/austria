@@ -16,8 +16,8 @@ const MapInfoSide = () => {
   return (
     <>
       {data.length > 0 &&
-        data.map((animal, idx) => (
-          <MapInfoSideCard key={idx} animal={animal} />
+        data.map((el, idx) => (
+          <MapInfoSideCard key={idx} animal={el} />
         ))}
     </>
   );
