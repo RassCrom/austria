@@ -4,7 +4,7 @@ import MapInfoSideCard from "./MapInfoSideCard";
 
 const MapInfoSide = () => {
   const { data, error, isLoading } = useFetchData(
-    "public/jsons/animals.json"
+    "jsons/animals.json"
   );
 
   if (isLoading) return "Loading...";
