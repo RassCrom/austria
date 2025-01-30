@@ -1,19 +1,25 @@
-import { useFetchAnimals } from '../../../store/features/animal/animalSlice';
-import WildlifeHighlightCard from './WildlifeHighlightCard';
-import styles from '../Wildlife.module.css';
+import { useFetchData } from '@hooks/useFetchData';
+import WildlifeHighlightCard from "./WildlifeHighlightCard";
+import styles from "../Wildlife.module.css";
 
 const WildlifeHighlight = () => {
-  const { data, error, isLoading } = useFetchAnimals();
-  const animal = data
-  console.log(data)
+  const { data, error, isLoading } = useFetchData(
+    "public/jsons/animals.json"
+  );
+
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
+
+  if (!data) return "No data available";
 
   return (
     <div className={styles.wildlife_highlight}>
-      {animal.length > 0 
-        ? animal.slice(0).map(
-          (el, idx) => <WildlifeHighlightCard key={idx} animal={el} />
-        )
-        : 'Loading'}
+      {data.length > 0
+        ? data
+            .slice(0)
+            .map((el, idx) => <WildlifeHighlightCard key={idx} animal={el} />)
+        : "Loading"}
     </div>
   );
 };
