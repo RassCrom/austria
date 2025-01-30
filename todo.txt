@@ -13,7 +13,9 @@
 
 - Create excel table with all animals and columns 
 -- Include url paths into the table
--- 
+-- animals [+]
+-- Nature
+-- history
 
 - Finish MapInfoSide component
 
