@@ -11,12 +11,12 @@ const WildlifeHighlight = () => {
 
   if (error) return "An error has occurred: " + error.message;
 
-  if (!data) return "No data available";
+  if (!data || !Array.isArray(data)) return "No data available or data is not in expected format";
 
   return (
     <div className={styles.wildlife_highlight}>
       {data.length > 0
-        ? data.map((animal, idx) => <WildlifeHighlightCard key={idx} animal={animal} />)
+        ? data.map((ani, idx) => <WildlifeHighlightCard key={idx} animal={ani} />)
         : "Loading"}
     </div>
   );
