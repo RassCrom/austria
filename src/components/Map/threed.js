@@ -1,6 +1,6 @@
 import { Threebox } from 'threebox-plugin';
 import { setActiveInfo } from '@store/features/activeInfo/activeInfoSlice';
-import { setShownInfo } from '../../store/features/shownInfo/shownInfoSlice';
+import { setShownInfo } from '@store/features/activeInfo/activeInfoSlice';
 
 let date = new Date();
 // const fixedDate = new Date(date.setHours(13, 0, 0, 0)); // Set hours to 1 PM (13:00)
@@ -8,7 +8,6 @@ let date = new Date();
 export default function threed(startingPoint, map, animal, dispatch) {
     function onSelectedChange(e) {
         let selectedObject = e.detail.userData;
-        console.log(selectedObject.id);
         dispatch(setActiveInfo(selectedObject.id));
         dispatch(setShownInfo())
     }
@@ -37,11 +36,11 @@ export default function threed(startingPoint, map, animal, dispatch) {
                     units: 'meters',
                     rotation: { x: 90, y: -90, z: 0 },
                     anchor: 'center',
-                    id: animal.id || 'test'
+                    id: animal.id
                 };
 
                 window.tb.loadObj(options, (model) => {
-                    let s = model.setCoords([...animal.coords, 487]);
+                    let s = model.setCoords([...animal.coords, 0]); //487
                     model.setRotation({ x: 0, y: 0, z: 241 });
                     model.addTooltip(animal.title, true);
                     model.castShadow = true;

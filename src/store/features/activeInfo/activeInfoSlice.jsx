@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    activeInfo: null
+    activeInfo: null,
+    shownInfo: false
 };
 
 const options = {
@@ -11,13 +12,13 @@ const options = {
         setActiveInfo: (state, action) => {
             state.activeInfo = action.payload;
         },
-        clearActiveInfo: (state) => {
-            state.activeInfo = null;
+        setShownInfo: (state) => {
+            state.shownInfo = !state.shownInfo;
         }
     }
 }
 
 const activeInfoSlice = createSlice(options);
 
-export const { setActiveInfo, clearActiveInfo } = activeInfoSlice.actions;
+export const { setActiveInfo, setShownInfo } = activeInfoSlice.actions;
 export default activeInfoSlice.reducer;

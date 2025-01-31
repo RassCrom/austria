@@ -1,13 +1,9 @@
-import { useDispatch } from "react-redux";
-
 import { useFetchData } from "@hooks/useFetchData";
-import { clearActiveInfo } from "@store/features/activeInfo/activeInfoSlice";
 
 import MapInfoSideCard from "./MapInfoSideCard";
-import Loader from '../../Loader/Loader';
+import Loader from '@/Loader/Loader';
 
 const MapInfoSide = ({ activeInfo }) => {
-  const dispatch = useDispatch();
   const { data, error, isLoading } = useFetchData("jsons/animals.json");
 
   if (isLoading) return <Loader />;
@@ -21,7 +17,6 @@ const MapInfoSide = ({ activeInfo }) => {
   return (
     <MapInfoSideCard 
       animal={animal} 
-      onClear={() => dispatch(clearActiveInfo())} 
     />
   );
 };

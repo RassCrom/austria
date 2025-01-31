@@ -9,7 +9,7 @@ import { setShownInfo } from '@store/features/shownInfo/shownInfoSlice';
 
 const MapInfoSideCard = ({ animal }) => {
   const dispatch = useDispatch();
-  const shownInfo = useSelector((state) => state.shownInfo.shownInfo);
+  const shownInfo = useSelector((state) => state.mapInfo.shownInfo);
   
   const handleClearSideInfo = (e) => {
     e.preventDefault();
@@ -22,22 +22,15 @@ const MapInfoSideCard = ({ animal }) => {
   };
 
   useEffect(() => {
-    gsap.fromTo(
-      `.${styles.map_info_outer}`,
-      { opacity: 0, x: 400 },
-      { opacity: 1, x: 0, duration: .8, ease: "power2.out" }
-    );
-  }, [])
+    if (shownInfo) {      
+      gsap.fromTo(
+        `.${styles.map_info_outer}`,
+        { opacity: 0, x: 400 },
+        { opacity: 1, x: 0, duration: .8, ease: "power2.out" }
+      );
+    };
+  }, [shownInfo])
 
-  const animateSideInfo = () => {
-    gsap.fromTo(
-      `.${styles.map_info_outer}`,
-      { opacity: 0, x: 400 },
-      { opacity: 1, x: 0, duration: .8, ease: "power2.out" }
-    );
-  }
-
-  shownInfo ? animateSideInfo() : null;
 
   return (
     <div className={styles.map_info_outer}>

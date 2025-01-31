@@ -44,8 +44,13 @@ function Map() {
       projection: 'globe',
       accessToken: mapboxToken,
       ...startingPoint,
-      hash: true,
-      antialias: true
+      hash: false,
+      antialias: true,
+      config: {
+          basemap: {
+              show3dObjects: false
+          }
+      }
     });
 
     setMap(mapInstance);
@@ -65,7 +70,7 @@ function Map() {
     const loadLayers = async () => {
       try {
         await setupFogAndSnowEffects(map);
-        await addTerrain(map);
+        // await addTerrain(map);
         await fetchGeoJSON(map);
         await loadCustomIcons(map);
       } catch (err) {
@@ -109,7 +114,7 @@ async function setupFogAndSnowEffects(map) {
     'star-intensity': 0.05
   });
 
-  map.setConfigProperty('basemap', 'lightPreset', 'dusk');
+  map.setConfigProperty('basemap', 'lightPreset', 'night');
 }
 
 async function addTerrain(map) {
