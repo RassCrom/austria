@@ -33,7 +33,7 @@ const MapInfoSideCard = ({ animal }) => {
 
 
   return (
-    <div className={styles.map_info_outer}>
+    <div className={styles.map_info_outer} style={{backgroundImage: `url(others/torn_paper.png)`}}>
       <div className={styles.map_info}>
         <button href="" className={styles.map_back} onClick={handleClearSideInfo}>
         <svg className={styles.arrow_svg} 

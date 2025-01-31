@@ -2,7 +2,7 @@
     position: absolute;
     right: 0;
 
-    background-image: url('others/torn_paper.png');
+    /* background-image: url('others/torn_paper.png'); */
     background-origin: border-box;
     background-position: center;
     background-repeat: no-repeat;
