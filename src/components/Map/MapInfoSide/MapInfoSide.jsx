@@ -1,25 +1,28 @@
+import { useDispatch } from "react-redux";
+
 import { useFetchData } from "@hooks/useFetchData";
+import { clearActiveInfo } from "@store/features/activeInfo/activeInfoSlice";
 
 import MapInfoSideCard from "./MapInfoSideCard";
+import Loader from '../../Loader/Loader';
 
-const MapInfoSide = () => {
-  const { data, error, isLoading } = useFetchData(
-    "public/jsons/animals.json"
-  );
+const MapInfoSide = ({ activeInfo }) => {
+  const dispatch = useDispatch();
+  const { data, error, isLoading } = useFetchData("jsons/animals.json");
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <Loader />;
+  if (error) return <p>An error has occurred: {error.message}</p>;
+  if (!data || data.length === 0) return <p>No data available</p>;
 
-  if (error) return "An error has occurred: " + error.message;
+  const animal = data.find((animal) => animal.id === activeInfo);
 
-  if (!data) return "No data available";
+  if (!animal) return null;
 
   return (
-    <>
-      {data.length > 0 &&
-        data.map((el, idx) => (
-          <MapInfoSideCard key={idx} animal={el} />
-        ))}
-    </>
+    <MapInfoSideCard 
+      animal={animal} 
+      onClear={() => dispatch(clearActiveInfo())} 
+    />
   );
 };
 

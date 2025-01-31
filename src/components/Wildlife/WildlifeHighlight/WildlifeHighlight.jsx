@@ -4,7 +4,7 @@ import styles from "../Wildlife.module.css";
 
 const WildlifeHighlight = () => {
   const { data, error, isLoading } = useFetchData(
-    "public/jsons/animals.json"
+    "jsons/animals.json"
   );
 
   if (isLoading) return "Loading...";

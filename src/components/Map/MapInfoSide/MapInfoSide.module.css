@@ -3,16 +3,22 @@
     right: 0;
 
     background: url('others/torn_paper.png');
+    background-origin: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 480px;
     height: 100vh;
     overflow: hidden;
+    opacity: 1;
 
     z-index: 102;
 }
 
 .map_info {
     position: relative; 
-    padding: 3rem;
+    padding: 3rem 3rem 1rem 3rem;
+    margin-left: 1.5rem;
     height: 100%; /* Make it take full height of .map_info_outer */
     overflow-y: auto; /* Allow vertical scrolling */
 }
@@ -67,6 +73,8 @@
     font-size: 2rem;
     font-family: 'Playfair Display SC';
     font-weight: bold;
+
+    padding: 1rem 0;
 
     background: linear-gradient(to bottom right, #F5CC52, black);
     -webkit-background-clip: text;

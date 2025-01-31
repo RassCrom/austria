@@ -14,7 +14,7 @@ const WildlifeLast = () => {
                     gsap.from(
                         `.${styles.heading_secondary}`,
                         { opacity: 0, y: 50, duration: 1, delay: 0.2 },
-                        // { opacity: 1, y: 0 }
+                        { opacity: 1, y: 0 }
                     );
 
                     gsap.from(
