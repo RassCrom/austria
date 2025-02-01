@@ -1,14 +1,14 @@
-import Map from "../components/Map/Map";
-import MapNavigation from "../components/Map/MapNavigation";
-import MapBottom from "../components/Map/MapBottom/MapBottom";
-import Loader from "../components/Loader/Loader";
-import Menu from "../components/Menu/Menu";
+import Map from "@/Map/Map";
+import MapNavigation from "@/Map/MapNavigation";
+import MapBottom from "@/Map/MapBottom/MapBottom";
+import Loader from "@/Loader/Loader";
+import Menu from "@/Menu/Menu";
 
 import { useEffect, useState } from "react";
 
 import styles from '../styles/mapCotaniner.module.css'
 
-function MapContainer({ setIsSoundOn }) { 
+function MapPage({ setIsSoundOn }) { 
   const [isLoading, setIsLoading] = useState(true);
   const [display, setDisplay] = useState('hidden');
 
@@ -42,4 +42,4 @@ function MapContainer({ setIsSoundOn }) {
   );
 }
   
-  export default MapContainer;
+  export default MapPage;

@@ -26,7 +26,10 @@ const startingPoint = {
 
 function Map() {
   const { data } = useFetchData("jsons/animals.json");
-  const selectedItem = useSelector((state) => state.mapInfo.activeInfo);
+  const {selectedItem, isSideShown} = useSelector((state) => ({
+    selectedItem: state.mapInfo.activeInfo,
+    isSideShown: state.mapInfo.shownInfo
+  }));
   const dispatch = useDispatch();
 
   const mapContainerRef = useRef(null);
@@ -44,7 +47,7 @@ function Map() {
       projection: 'globe',
       accessToken: mapboxToken,
       ...startingPoint,
-      hash: false,
+      hash: true,
       antialias: true,
       config: {
           basemap: {
@@ -62,9 +65,12 @@ function Map() {
   useEffect(() => {
     if (!map || !data) return;
 
-    const fireSalamander = data.find((el) => el.title === 'Fire Salamander');
-    if (fireSalamander) {
-      threed(startingPoint, map, fireSalamander, dispatch);
+    const animals = data.filter((el) =>
+      ['Fire Salamander', 'European Pond Turtle'].includes(el.title)
+    );
+    if (animals) {
+      // console.log(animals)
+      threed(startingPoint, map, animals, dispatch, isSideShown)
     }
 
     const loadLayers = async () => {
@@ -81,7 +87,7 @@ function Map() {
     map.on('load', loadLayers);
 
     return () => map.off('load', loadLayers);
-  }, [map, data, dispatch]);
+  }, [map, data, dispatch, isSideShown]);
 
   return (
     <div id="map-container" ref={mapContainerRef}>

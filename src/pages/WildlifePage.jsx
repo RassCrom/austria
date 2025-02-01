@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import WildlifeHero from '../components/Wildlife/WildlifeHero/WildlifeHero';
-import WildlifeLast from '../components/Wildlife/WildlifeLast.jsx/WildlifeLast';
-import WildlifeHighlight from '../components/Wildlife/WildlifeHighlight/WildlifeHighlight';
-import Loader from '../components/Loader/Loader';
+import WildlifeHero from '@/Wildlife/WildlifeHero/WildlifeHero';
+import WildlifeLast from '@/Wildlife/WildlifeLast.jsx/WildlifeLast';
+import WildlifeHighlight from '@/Wildlife/WildlifeHighlight/WildlifeHighlight';
+import Loader from '@/Loader/Loader';
 
-import WildlifeThreeD from '../components/Wildlife/WildlifeThreeD';
+import WildlifeThreeD from '@/Wildlife/WildlifeThreeD';
 
-const WildlifeContainer = ({ setIsSoundOn }) => {
+const WildlifePage = ({ setIsSoundOn }) => {
   const [isLoading, setIsLoading] = useState(true);
   const scrollPos = useRef();
   const progressBar = useRef();
@@ -120,4 +120,4 @@ const WildlifeContainer = ({ setIsSoundOn }) => {
   );
 };
 
-export default WildlifeContainer;
+export default WildlifePage;

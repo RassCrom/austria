@@ -3,18 +3,20 @@ import { useEffect, useState } from 'react';
 
 import './styles/App.css';
 
-import MapContainer from './pages/MapContainer';
-import WildlifeContainer from "./pages/WildlifeContainer";
-import Root from "./pages/Root";
-import MapInfoSide from "./components/Map/MapInfoSide/MapInfoSide";
+import Root from "@pages/Root";
+import HeroPage from "@pages/HeroPage";
+import MapPage from '@pages/MapPage';
+import WildlifePage from "@pages/WildlifePage";
 
 // TODO Create shared layout
 const ROUTER = (setIsSoundOn) => createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Root />}>
-    <Route index path='' element={<WildlifeContainer setIsSoundOn={setIsSoundOn} />} />
-    <Route path="/map" element={<MapContainer setIsSoundOn={setIsSoundOn} />} />
-    <Route path="/test" element={<MapInfoSide />} />
-  </Route>
+  <>
+    <Route index path="" element={<HeroPage />}></Route>
+    <Route path="/" element={<Root />}>
+      <Route path='/wildlife' element={<WildlifePage setIsSoundOn={setIsSoundOn} />} />
+      <Route path="/map" element={<MapPage setIsSoundOn={setIsSoundOn} />} />
+    </Route>
+  </>
 ));
 
 function App() {

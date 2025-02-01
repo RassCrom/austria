@@ -12,8 +12,8 @@ const options = {
         setActiveInfo: (state, action) => {
             state.activeInfo = action.payload;
         },
-        setShownInfo: (state) => {
-            state.shownInfo = !state.shownInfo;
+        setShownInfo: (state, action) => {
+            state.shownInfo = action.payload;
         }
     }
 }

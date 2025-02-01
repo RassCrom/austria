@@ -5,7 +5,7 @@ import 'swiper/css';
 import styles from './MapInfoSide.module.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { setShownInfo } from '@store/features/shownInfo/shownInfoSlice';
+import { setShownInfo } from '@store/features/activeInfo/activeInfoSlice';
 
 const MapInfoSideCard = ({ animal }) => {
   const dispatch = useDispatch();
@@ -13,11 +13,12 @@ const MapInfoSideCard = ({ animal }) => {
   
   const handleClearSideInfo = (e) => {
     e.preventDefault();
-    dispatch(setShownInfo());
+    dispatch(setShownInfo(false));
+    console.log(shownInfo);
     gsap.fromTo(
       `.${styles.map_info_outer}`,
       { opacity: 1, x: 0},
-      { opacity: 0, x: 400, duration: .8, ease: "power2.out"  }
+      { opacity: 0, x: 400, duration: .8, ease: "power2.out"}
     );
   };
 
@@ -29,11 +30,12 @@ const MapInfoSideCard = ({ animal }) => {
         { opacity: 1, x: 0, duration: .8, ease: "power2.out" }
       );
     };
+    console.log(shownInfo);
   }, [shownInfo])
 
 
   return (
-    <div className={styles.map_info_outer} style={{backgroundImage: `url(others/torn_paper.png)`}}>
+    <div className={styles.map_info_outer} style={{backgroundImage: `url(others/torn_paper.png)`}}> 
       <div className={styles.map_info}>
         <button href="" className={styles.map_back} onClick={handleClearSideInfo}>
         <svg className={styles.arrow_svg} 
