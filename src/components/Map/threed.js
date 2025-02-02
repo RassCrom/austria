@@ -21,11 +21,11 @@ function add3dObject(animal, startingPoint, map, onSelected) {
                     enableTooltips: true,
                 }
             );
-            const scale = 3.2;
+            const scale = 1;
             const options = {
                 obj: `models/${animal.model}`,
                 type: 'gltf',
-                scale: { x: scale, y: scale, z: 2.7 },
+                scale: { x: scale, y: scale, z: 1 },
                 units: 'meters',
                 rotation: { x: 90, y: -90, z: 0 },
                 anchor: 'center',

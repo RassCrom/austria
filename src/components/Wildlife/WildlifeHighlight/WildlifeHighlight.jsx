@@ -1,15 +1,17 @@
 import { useFetchData } from '@hooks/useFetchData';
 import WildlifeHighlightCard from "./WildlifeHighlightCard";
 import styles from "../Wildlife.module.css";
+import Loader from '@/Loader/Loader';
+import ErrorPage from '@pages/ErrorPage';
 
-const WildlifeHighlight = () => {
+const WildlifeHighlight = ({ json }) => {
   const { data, error, isLoading } = useFetchData(
-    "jsons/animals.json"
+    `jsons/${json}`
   );
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <Loader />;
 
-  if (error) return "An error has occurred: " + error.message;
+  if (error) return <ErrorPage />;
 
   if (!data || !Array.isArray(data)) return "No data available or data is not in expected format";
 
@@ -17,7 +19,7 @@ const WildlifeHighlight = () => {
     <div className={styles.wildlife_highlight}>
       {data.length > 0
         ? data.map((el, idx) => <WildlifeHighlightCard key={idx} animal={el} />)
-        : "Loading"}
+        : <Loader />}
     </div>
   );
 };

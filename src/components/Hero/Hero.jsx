@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import styles from "./Hero.module.css";
@@ -12,9 +12,7 @@ const Hero = ({ images }) => {
         WebkitTextFillColor: "transparent",
     });
 
-    const handleClick = (url) => {
-        navigate(url);
-    }
+    const handleClick = (url) => navigate(url);
 
     return (
         <div className={styles.hero_outer}>
@@ -31,9 +29,11 @@ const Hero = ({ images }) => {
                 <h2 
                     className={styles.hero_subheading} 
                     style={getGradientStyle(gradientColor)}
-                    onClick={() => handleClick(`/${title}`)}
+                    // onClick={() => handleClick(`/${title}`)}
                 >
-                    {title}
+                    <Link to={`/${title}`}>
+                        {title}
+                    </Link>
                 </h2>
             </div>
         ))}

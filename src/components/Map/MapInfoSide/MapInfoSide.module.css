@@ -21,6 +21,8 @@
     margin-left: 1.5rem;
     height: 100%; /* Make it take full height of .map_info_outer */
     overflow-y: auto; /* Allow vertical scrolling */
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
 }
 
 .map_back {
@@ -66,7 +68,7 @@
 }
 
 .map_info__inner {
-    padding-top: 2.5rem;
+    /* padding-top: 2.5rem; */
 }
 
 .map_info__heading {
@@ -82,7 +84,7 @@
 }
 
 .map_info__stats {
-    margin-top: 3rem;
+    margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1rem;
@@ -108,14 +110,11 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
 }
 
-.map_info__text {
+/* .map_info__text {
     margin-top: 1rem;
-}
-
-.map_info__text {
     color: #909090;
     font-weight: 300;
-}
+} */
 
 .map_info__slider {
     margin-top: 1rem;
@@ -130,3 +129,33 @@
 .map_slider__imgs:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
 }
+
+.map_info__text {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  
+  .map_info__text h3 {
+    font-size: 1.2rem;
+    color: #f8b400; /* Elegant golden-yellow */
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-left: 4px solid #f8b400;
+    padding-left: 10px;
+  }
+  
+  .map_info__text p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin-bottom: 12px;
+    text-align: justify;
+    font-weight: 300;
+  }
+  
+  .map_info__text p:last-child {
+    margin-bottom: 0; /* Avoid extra space at the end */
+  }

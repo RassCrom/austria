@@ -24,7 +24,7 @@ const startingPoint = {
   maxZoom: 20,
 };
 
-function Map() {
+function Map({ setIsLoading }) {
   const { data } = useFetchData("jsons/animals.json");
   const {selectedItem, isSideShown} = useSelector((state) => ({
     selectedItem: state.mapInfo.activeInfo,
@@ -58,6 +58,9 @@ function Map() {
 
     setMap(mapInstance);
     mapInstance.setMaxBounds(bounds);
+    mapInstance.on("load", () => {
+      setIsLoading(false);
+    });
 
     return () => mapInstance.remove();
   }, []);
@@ -66,10 +69,9 @@ function Map() {
     if (!map || !data) return;
 
     const animals = data.filter((el) =>
-      ['Fire Salamander', 'European Pond Turtle'].includes(el.title)
+      ['European Rabbit'].includes(el.title)
     );
     if (animals) {
-      // console.log(animals)
       threed(startingPoint, map, animals, dispatch, isSideShown)
     }
 
@@ -86,7 +88,9 @@ function Map() {
 
     map.on('load', loadLayers);
 
-    return () => map.off('load', loadLayers);
+    return () => {
+      map.off('load', loadLayers);
+    }
   }, [map, data, dispatch, isSideShown]);
 
   return (
@@ -97,7 +101,9 @@ function Map() {
 }
 
 async function setupFogAndSnowEffects(map) {
-  const zoomBasedReveal = (value) => ['interpolate', ['linear'], ['zoom'], 11, 0.0, 13, value];
+  const zoomBasedReveal = (value) => [
+    'interpolate', ['linear'], ['zoom'], 11, 0.0, 13, value
+  ];
 
   map.setSnow({
     density: zoomBasedReveal(0.3),

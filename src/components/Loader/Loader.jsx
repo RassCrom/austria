@@ -1,5 +1,4 @@
 import styles from "./Loader.module.css";
-import MapLogo from "../Header/Logo";
 import Clouds from "./Clouds";
 
 function Loader({ setIsSoundOn }) {
@@ -9,7 +8,7 @@ function Loader({ setIsSoundOn }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center z-10 w-full mt-5">
+    <div className="flex flex-col relative items-center justify-center z-110 w-full h-full mt-0">
       {/* <MapLogo /> */}
       <div className={styles.loader_container}>
         <p className={styles.loader_text}>

@@ -38,7 +38,7 @@
     "desc": "",
     "short_d": "",
     "model": "ai.glb",
-    "coords": [],
+    "coords": [13.355, 47.822],
     "layer": "ai_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/42397/219261343",
     "id": "ai_a"
@@ -81,8 +81,8 @@
     "pic_h": [],
     "desc": "",
     "short_d": "",
-    "model": "animal.glb",
-    "coords": [],
+    "model": "slb.glb",
+    "coords": [13.355, 47.822999],
     "layer": "slb_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/12664/3372061",
     "id": "slb_a"
@@ -138,7 +138,8 @@
     "population": "",
     "pop_i": 0,
     "pic_main": "er_main.png",
-    "text_main": "",
+    "text_headings": ["🏰 Royal Past, Wild Future", "🐇 Speed Demons & Zigzag Runners"],
+    "text_main": ["Did you know that European rabbits weren’t always part of Austria’s wild landscape? They were once considered exclusive royal pets, kept in medieval hunting parks and monasteries. But like true escape artists, some of them made a break for it—and today, they’ve established themselves across the countryside, from Vienna’s city parks to the alpine foothills.", "Think rabbits are easy prey? Think again! European rabbits can reach speeds of up to 40 km/h (25 mph) and use unpredictable zigzag running patterns to escape foxes, birds of prey, and even the occasional curious dog. Their powerful hind legs can launch them nearly one meter into the air—a natural parkour expert!"],
     "pic_1": "er_1.jpg",
     "pic_2": "er_2.jpg",
     "pic_3": "er_3.jpg",
@@ -148,7 +149,7 @@
     "desc": "",
     "short_d": "",
     "model": "er.glb",
-    "coords": [],
+    "coords": [13.355, 47.822999],
     "layer": "er_habitat.geojson",
     "id": "er_a"
   },

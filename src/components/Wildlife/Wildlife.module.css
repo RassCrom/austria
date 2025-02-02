@@ -70,7 +70,7 @@
 }
 
 .styled_list {
-    width: 350px;
+    width: 500px;
     list-style: circle !important;
     list-style-type: circle;
     padding-left: 20px; 

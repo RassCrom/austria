@@ -58,9 +58,12 @@ const MapInfoSideCard = ({ animal }) => {
             <img src={`images/${animal.pic_main}`} alt={`${animal.title} Image`} />
           </div>
           <div className={styles.map_info__text}>
-            <p>
-              {animal.text_main}
-            </p>
+            {animal.text_main.map((text, index) => (
+              <>
+                <h3 key={index}>{animal.text_headings[index]}</h3>
+                <p>{text}</p>
+              </>
+            ))}
           </div>
           <div className={styles.map_info__slider}>
             <Swiper

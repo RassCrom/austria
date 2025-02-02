@@ -9,7 +9,7 @@ const Header = () => {
         <ul className="nav-list flex gap-10">
           <li className="list-item">
             <NavLink
-              to="/"
+              to="/wildlife"
               className={({ isActive }) => (isActive ? styles.active : "")}
               end
             >
@@ -18,7 +18,7 @@ const Header = () => {
           </li>
           <li className="list-item">
             <NavLink
-              to="/must-go"
+              to="/history"
               className={({ isActive }) => (isActive ? styles.active : "")}
             >
               must-go
@@ -26,7 +26,7 @@ const Header = () => {
           </li>
           <li className="list-item">
             <NavLink
-              to="/test"
+              to="/nature"
               className={({ isActive }) => (isActive ? styles.active : "")}
             >
               explore Austria

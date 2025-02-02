@@ -7,13 +7,17 @@ import Root from "@pages/Root";
 import HeroPage from "@pages/HeroPage";
 import MapPage from '@pages/MapPage';
 import WildlifePage from "@pages/WildlifePage";
+import HistoryPage from "./pages/HistoryPage";
+import NaturePage from "./pages/NaturePage";
 
 // TODO Create shared layout
 const ROUTER = (setIsSoundOn) => createBrowserRouter(createRoutesFromElements(
   <>
-    <Route index path="" element={<HeroPage />}></Route>
+    <Route index element={<HeroPage />} />
     <Route path="/" element={<Root />}>
       <Route path='/wildlife' element={<WildlifePage setIsSoundOn={setIsSoundOn} />} />
+      <Route path='/history' element={<HistoryPage setIsSoundOn={setIsSoundOn} />} />
+      <Route path='/nature' element={<NaturePage setIsSoundOn={setIsSoundOn} />} />
       <Route path="/map" element={<MapPage setIsSoundOn={setIsSoundOn} />} />
     </Route>
   </>
@@ -32,6 +36,7 @@ function App() {
         console.error('Audio playback failed:', error);
       });
     };
+
     if (isSoundOn) playAudio();
   }, [isSoundOn]);
 
