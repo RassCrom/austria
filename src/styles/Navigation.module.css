@@ -36,12 +36,13 @@ nav ul li a {
     font-size: 1rem;
     font-weight: 500;
     line-height: 120%;
+    color: black;
 
     transition: all .3s ease-in;
 }
 
 nav ul li a:hover {
-    color: #E9C46A;
+    color: #614704;
 }
 
 .active {

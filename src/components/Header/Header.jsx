@@ -1,9 +1,12 @@
 import Logo from "./Logo";
 import styles from "../../styles/Navigation.module.css";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { setCurrentTopic } from "../../store/features/currentTopic/currentTopic";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
   return (
     <header className={styles.header}>
       <nav className={`${styles.nav} ${styles.leftNav}`}>
@@ -12,8 +15,7 @@ const Header = () => {
             <NavLink
               to="/wildlife"
               className={({ isActive }) => (isActive ? styles.active : "")}
-              onClick={() => setCurrentTopic("wildlife")}
-              end
+              onClick={() => dispatch(setCurrentTopic("animals"))}
             >
               wildlife
             </NavLink>
@@ -22,7 +24,7 @@ const Header = () => {
             <NavLink
               to="/history"
               className={({ isActive }) => (isActive ? styles.active : "")}
-              onClick={() => setCurrentTopic("history")}
+              onClick={() => dispatch(setCurrentTopic("history"))}
             >
               must-go
             </NavLink>
@@ -31,7 +33,7 @@ const Header = () => {
             <NavLink
               to="/nature"
               className={({ isActive }) => (isActive ? styles.active : "")}
-              onClick={() => setCurrentTopic("nature")}
+              onClick={() => dispatch(setCurrentTopic("nature"))}
             >
               explore Austria
             </NavLink>
@@ -45,22 +47,6 @@ const Header = () => {
 
       <nav className={`${styles.nav} ${styles.rightNav}`}>
         <ul className="nav-list flex gap-10">
-          {/* <li className="list-item">
-            <NavLink
-              to="/library"
-              className={({ isActive }) => (isActive ? styles.active : "")}
-            >
-              library
-            </NavLink>
-          </li>
-          <li className="list-item">
-            <NavLink
-              to="/red-list"
-              className={({ isActive }) => (isActive ? styles.active : "")}
-            >
-              red list
-            </NavLink>
-          </li> */}
           <li className="list-item">
             <NavLink
               to="/map"

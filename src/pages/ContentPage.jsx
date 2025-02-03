@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useFetchData } from '@hooks/useFetchData';
 
 import Loader from '@/Loader/Loader';
@@ -12,7 +12,6 @@ const ContentPage = ({ id, setIsSoundOn }) => {
   const progressBar = useRef(null);
   const { data, error, isLoadingData } = useFetchData('/jsons/content.json');
   const content = data ? data.find((el) => el.id === id) : <Loader />;
-  console.log('Content:', content);
 
   const handleScrollProgress = useCallback(() => {
     if (!scrollPos.current || !progressBar.current) return;

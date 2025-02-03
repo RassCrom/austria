@@ -4,8 +4,8 @@ import MapInfoSideCard from "./MapInfoSideCard";
 import Loader from '@/Loader/Loader';
 import ErrorPage from '@pages/ErrorPage';
 
-const MapInfoSide = ({ activeInfo }) => {
-  const { data, error, isLoading } = useFetchData("jsons/animals.json");
+const MapInfoSide = ({ activeInfo, topic }) => {
+  const { data, error, isLoading } = useFetchData(`/jsons/${topic}.json`);
 
   if (isLoading) return <Loader />;
   if (error) return <ErrorPage />;

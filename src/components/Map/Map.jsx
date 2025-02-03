@@ -24,8 +24,8 @@ const startingPoint = {
   maxZoom: 20,
 };
 
-function Map({ setIsLoading }) {
-  const { data } = useFetchData("jsons/animals.json");
+function Map({ setIsLoading, topic }) {
+  const { data } = useFetchData(`/jsons/${topic}.json`);
   const {selectedItem, isSideShown} = useSelector((state) => ({
     selectedItem: state.mapInfo.activeInfo,
     isSideShown: state.mapInfo.shownInfo
@@ -49,11 +49,7 @@ function Map({ setIsLoading }) {
       ...startingPoint,
       hash: true,
       antialias: true,
-      config: {
-          basemap: {
-              show3dObjects: false
-          }
-      }
+      config: { basemap: {  show3dObjects: false  }  }
     });
 
     setMap(mapInstance);
@@ -63,16 +59,17 @@ function Map({ setIsLoading }) {
     });
 
     return () => mapInstance.remove();
-  }, []);
+  }, [setIsLoading, topic]);
 
   useEffect(() => {
     if (!map || !data) return;
 
     const models = data.filter((el) =>
-      ['European Rabbit'].includes(el.title)
+      ['Schoenbrunn Palace'].includes(el.title)
     );
+
     if (data) {
-      threed(startingPoint, map, data, dispatch, isSideShown)
+      threed(startingPoint, map, models, dispatch, isSideShown)
     }
 
     const loadLayers = async () => {
@@ -89,13 +86,14 @@ function Map({ setIsLoading }) {
     map.on('load', loadLayers);
 
     return () => {
+      threed(startingPoint, map, [], dispatch, isSideShown)
       map.off('load', loadLayers);
     }
-  }, [map, data, dispatch, isSideShown]);
+  }, [map, data, dispatch, isSideShown, topic]);
 
   return (
     <div id="map-container" ref={mapContainerRef}>
-      <MapInfoSide activeInfo={selectedItem} />
+      <MapInfoSide activeInfo={selectedItem} topic={topic} />
     </div>
   );
 }

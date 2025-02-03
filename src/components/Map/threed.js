@@ -33,11 +33,11 @@ function add3dObject(animal, startingPoint, map, onSelected) {
             };
 
             window.tb.loadObj(options, (model) => {
-                let s = model.setCoords([...animal.coords, 487]); //487
+                model.setCoords([...animal.coords, 487]); //487
                 model.setRotation({ x: 0, y: 0, z: 241 });
                 model.addTooltip(animal.title, true);
                 model.castShadow = true;
-                s.addEventListener('SelectedChange', onSelected, false);
+                model.addEventListener('SelectedChange', onSelected, false);
                 window.tb.add(model);
             });
         },
@@ -50,21 +50,34 @@ function add3dObject(animal, startingPoint, map, onSelected) {
 }
 
 export default function threed(startingPoint, map, animals, dispatch, isSideShown) {
+    let loadedModels = [];
+
     function onSelectedChange(e) {
         let selectedObject = e.detail.userData;
         dispatch(setActiveInfo(selectedObject.id));
         dispatch(setShownInfo(true))
-        // console.log(selectedObject.id);
+        console.log(selectedObject.id);
         console.log(isSideShown);
+    }
+
+    function remove3DObjects() {
+        loadedModels.forEach(id => {
+            if (map.getLayer(id)) {
+                map.removeLayer(id);
+            }
+        });
+        loadedModels = [];
     }
     
     map.once('style.load', () => {
+        remove3DObjects();
+
         animals.forEach(animal => {
             if (!map.getLayer(animal.id)) {
                 add3dObject(animal, startingPoint, map, onSelectedChange);
+                loadedModels.push(animal.id);
             }
         });
     });
-    
 }
 

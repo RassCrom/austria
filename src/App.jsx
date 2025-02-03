@@ -1,5 +1,7 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import { useDispatch } from "react-redux";
+import { setCurrentTopic } from "./store/features/currentTopic/currentTopic";
 
 import './styles/App.css';
 
@@ -11,13 +13,13 @@ import HistoryPage from "./pages/HistoryPage";
 import NaturePage from "./pages/NaturePage";
 
 // TODO Create shared layout
-const ROUTER = (setIsSoundOn) => createBrowserRouter(createRoutesFromElements(
+const ROUTER = (setIsSoundOn, dispatch) => createBrowserRouter(createRoutesFromElements(
   <>
     <Route index element={<HeroPage />} />
     <Route path="/" element={<Root />}>
-      <Route path='/wildlife' element={<WildlifePage setIsSoundOn={setIsSoundOn} />} />
-      <Route path='/history' element={<HistoryPage setIsSoundOn={setIsSoundOn} />} />
-      <Route path='/nature' element={<NaturePage setIsSoundOn={setIsSoundOn} />} />
+      <Route path='/wildlife' element={<WildlifePage setCurrentTopic={() => dispatch(setCurrentTopic('animals'))} setIsSoundOn={setIsSoundOn} />} />
+      <Route path='/history' element={<HistoryPage setCurrentTopic={() => dispatch(setCurrentTopic('history'))} setIsSoundOn={setIsSoundOn} />} />
+      <Route path='/nature' element={<NaturePage setCurrentTopic={() => dispatch(setCurrentTopic('nature'))} setIsSoundOn={setIsSoundOn} />} />
       <Route path="/map" element={<MapPage setIsSoundOn={setIsSoundOn} />} />
     </Route>
   </>
@@ -25,6 +27,7 @@ const ROUTER = (setIsSoundOn) => createBrowserRouter(createRoutesFromElements(
 
 function App() {
   const [isSoundOn, setIsSoundOn] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const newAudio = new Audio('audios/street.mp3');
@@ -42,7 +45,7 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={ROUTER(setIsSoundOn)} />
+      <RouterProvider router={ROUTER(setIsSoundOn, dispatch)} />
     </>
   );
 }
