@@ -16,7 +16,7 @@
       "desc": "",
       "short_desc": "A UNESCO World Heritage Site in Vienna",
       "model": "palace.glb",
-      "coords": [16.3128090, 48.1857745],
+      "coords": [16.312706701131326, 48.18589217547669],
       "layer": ".geojson",
 	  "interesting_facts": "Established in 1752 within the palace grounds, Tiergarten Schönbrunn is the world's oldest continuously operating zoo.",
 	  "url": "https://www.schoenbrunn.at/"

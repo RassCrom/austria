@@ -11,6 +11,7 @@ import Loader from "@/Loader/Loader";
 function MapPage({ setIsSoundOn }) { 
   const [isLoading, setIsLoading] = useState(true);
   const [display, setDisplay] = useState('hidden');
+  const [selectedObject, setSelectedObject] = useState(null);
 
   const currentTopic = useSelector((state) => state.currentTopic.topic);
   const dispatch = useDispatch();
@@ -19,6 +20,10 @@ function MapPage({ setIsSoundOn }) {
   const displayMenuHandler = () => {
     setDisplay((prev) => (prev === 'hidden' ? 'flex' : 'hidden'));
   };
+
+  const handleSelectedObject = (object) => {
+    setSelectedObject(object);
+  }
 
   useEffect(() => {
     console.log(currentTopic)
@@ -38,8 +43,12 @@ function MapPage({ setIsSoundOn }) {
       {isLoading && <Loader setIsSoundOn={setIsSoundOn} />}
       <Menu display={display} displayMenuHandler={displayMenuHandler} />
       <MapNavigation displayMenuHandler={displayMenuHandler} />
-      {currentTopic && <Map topic={currentTopic} setIsLoading={setIsLoading} />}
-      <MapBottom topic={currentTopic} />
+      {currentTopic && <Map 
+        topic={currentTopic} 
+        setIsLoading={setIsLoading} 
+        selectedObject={selectedObject} 
+      />}
+      <MapBottom topic={currentTopic} handleSelectedObject={handleSelectedObject} />
     </>
   );
 }

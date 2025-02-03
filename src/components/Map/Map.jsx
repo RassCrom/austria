@@ -7,6 +7,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useFetchData } from "@hooks/useFetchData";
 import threed from "./threed";
 import MapInfoSide from "./MapInfoSide/MapInfoSide";
+import { use } from "react";
 
 const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -24,7 +25,7 @@ const startingPoint = {
   maxZoom: 20,
 };
 
-function Map({ setIsLoading, topic }) {
+function Map({ setIsLoading, topic, selectedObject }) {
   const { data } = useFetchData(`/jsons/${topic}.json`);
   const {selectedItem, isSideShown} = useSelector((state) => ({
     selectedItem: state.mapInfo.activeInfo,
@@ -34,6 +35,15 @@ function Map({ setIsLoading, topic }) {
 
   const mapContainerRef = useRef(null);
   const [map, setMap] = useState(null);
+
+  useEffect(() => {
+    if (!map || !selectedObject) return;
+
+    // const selectedItemData = data.find((el) => el.title === selectedItem);
+    if (selectedObject) {
+      flyToSelectedObject(map, selectedObject);
+    }
+  }, [map, selectedObject, data]);
 
   useEffect(() => {
     if (!mapboxToken) {
@@ -204,6 +214,16 @@ async function loadCustomIcons(map) {
       },
       paint: { "icon-translate": [0, 0] }
     });
+  });
+}
+
+function flyToSelectedObject(map, coordinates) {
+  map.flyTo({
+    center: coordinates,
+    zoom: 18,
+    pitch: 52,
+    bearing: 40,
+    speed: 0.5
   });
 }
 
