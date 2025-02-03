@@ -1,6 +1,7 @@
 import Logo from "./Logo";
 import styles from "../../styles/Navigation.module.css";
 import { NavLink } from "react-router-dom";
+import { setCurrentTopic } from "../../store/features/currentTopic/currentTopic";
 
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
             <NavLink
               to="/wildlife"
               className={({ isActive }) => (isActive ? styles.active : "")}
+              onClick={() => setCurrentTopic("wildlife")}
               end
             >
               wildlife
@@ -20,6 +22,7 @@ const Header = () => {
             <NavLink
               to="/history"
               className={({ isActive }) => (isActive ? styles.active : "")}
+              onClick={() => setCurrentTopic("history")}
             >
               must-go
             </NavLink>
@@ -28,6 +31,7 @@ const Header = () => {
             <NavLink
               to="/nature"
               className={({ isActive }) => (isActive ? styles.active : "")}
+              onClick={() => setCurrentTopic("nature")}
             >
               explore Austria
             </NavLink>

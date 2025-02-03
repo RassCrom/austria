@@ -15,8 +15,8 @@
     "pic_h": [],
     "desc": "",
     "short_d": "",
-    "model": "red_panda.glb",
-    "coords": [13.355, 47.822999],
+    "model": "animal.glb",
+    "coords": [14.52595, 47.63356],
     "layer": "fs_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/59467/219148292",
     "id": "fs_a"
@@ -38,7 +38,7 @@
     "desc": "",
     "short_d": "",
     "model": "ai.glb",
-    "coords": [13.355, 47.822],
+    "coords": [12.02832, 47.20058],
     "layer": "ai_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/42397/219261343",
     "id": "ai_a"
@@ -59,8 +59,8 @@
     "pic_h": [],
     "desc": "",
     "short_d": "",
-    "model": "el.glb",
-    "coords": [],
+    "model": "animal.glb",
+    "coords": [14.61423, 48.40107],
     "layer": "el_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/12519/177350310",
     "id": "el_a"
@@ -82,7 +82,7 @@
     "desc": "",
     "short_d": "",
     "model": "slb.glb",
-    "coords": [13.355, 47.822999],
+    "coords": [14.73443, 48.08711],
     "layer": "slb_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/12664/3372061",
     "id": "slb_a"
@@ -104,7 +104,7 @@
     "desc": "",
     "short_d": "",
     "model": "animal.glb",
-    "coords": [],
+    "coords": [15.18775, 47.12498],
     "layer": "gse_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/22696027/166302380",
     "id": "gse_a"
@@ -125,8 +125,8 @@
     "pic_h": [],
     "desc": "",
     "short_d": "",
-    "model": "ch.glb",
-    "coords": [],
+    "model": "animal.glb",
+    "coords": [16.44805, 48.27770],
     "layer": "ch_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/5529/221788781",
     "id": "ch_a"
@@ -149,7 +149,7 @@
     "desc": "",
     "short_d": "",
     "model": "er.glb",
-    "coords": [13.355, 47.822999],
+    "coords": [14.14145, 47.58691],
     "layer": "er_habitat.geojson",
     "id": "er_a"
   },
@@ -169,8 +169,8 @@
     "pic_h": [],
     "desc": "",
     "short_d": "",
-    "model": "egs.glb",
-    "coords": [],
+    "model": "animal.glb",
+    "coords": [16.37462, 48.35133],
     "layer": "egs_habitat.geojson",
     "id": "egs_a"
   },
@@ -190,8 +190,8 @@
     "pic_h": [],
     "desc": "",
     "short_d": "",
-    "model": "eo.glb",
-    "coords": [],
+    "model": "animal.glb",
+    "coords": [14.63273, 47.64332],
     "layer": "eo_habitat.geojson",
     "id": "eo_a"
   },
@@ -212,7 +212,7 @@
     "desc": "",
     "short_d": "",
     "model": "ept.glb",
-    "coords": [13.355, 47.822],
+    "coords": [14.72027, 47.69381],
     "layer": "fs_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/7717/207667247",
     "id": "ept_a"

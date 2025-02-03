@@ -16,7 +16,7 @@ const bounds = [
 ];
 
 const startingPoint = {
-  center: [13.355, 47.822],
+  center: [14.14145, 47.58691],
   zoom: 18,
   pitch: 52,
   bearing: 40,
@@ -68,11 +68,11 @@ function Map({ setIsLoading }) {
   useEffect(() => {
     if (!map || !data) return;
 
-    const animals = data.filter((el) =>
+    const models = data.filter((el) =>
       ['European Rabbit'].includes(el.title)
     );
-    if (animals) {
-      threed(startingPoint, map, animals, dispatch, isSideShown)
+    if (data) {
+      threed(startingPoint, map, data, dispatch, isSideShown)
     }
 
     const loadLayers = async () => {
@@ -119,14 +119,14 @@ async function setupFogAndSnowEffects(map) {
 
   map.setFog({
     range: [-0.5, 1.5],
-    'horizon-blend': 0.4,
+    'horizon-blend': 0.2,
     color: "#2a2a2a",
     'high-color': "#4b4b4b",
     'space-color': "#1a1a1a",
     'star-intensity': 0.05
   });
 
-  map.setConfigProperty('basemap', 'lightPreset', 'night');
+  map.setConfigProperty('basemap', 'lightPreset', 'day');
 }
 
 async function addTerrain(map) {

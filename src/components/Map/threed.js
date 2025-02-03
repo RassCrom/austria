@@ -2,7 +2,7 @@ import { Threebox } from 'threebox-plugin';
 import { setActiveInfo, setShownInfo } from '@store/features/activeInfo/activeInfoSlice';
 
 let date = new Date();
-// const fixedDate = new Date(date.setHours(13, 0, 0, 0)); // Set hours to 1 PM (13:00)
+const fixedDate = new Date(date.setHours(13, 0, 0, 0)); // Set hours to 1 PM (13:00)
 
 
 function add3dObject(animal, startingPoint, map, onSelected) {
@@ -21,11 +21,11 @@ function add3dObject(animal, startingPoint, map, onSelected) {
                     enableTooltips: true,
                 }
             );
-            const scale = 1;
+            const scale = 100; //1 3.2
             const options = {
                 obj: `models/${animal.model}`,
                 type: 'gltf',
-                scale: { x: scale, y: scale, z: 1 },
+                scale: { x: scale, y: scale, z: 95 }, //1 2.7
                 units: 'meters',
                 rotation: { x: 90, y: -90, z: 0 },
                 anchor: 'center',
@@ -33,7 +33,7 @@ function add3dObject(animal, startingPoint, map, onSelected) {
             };
 
             window.tb.loadObj(options, (model) => {
-                let s = model.setCoords([...animal.coords, 0]); //487
+                let s = model.setCoords([...animal.coords, 487]); //487
                 model.setRotation({ x: 0, y: 0, z: 241 });
                 model.addTooltip(animal.title, true);
                 model.castShadow = true;
@@ -43,7 +43,7 @@ function add3dObject(animal, startingPoint, map, onSelected) {
         },
 
         render: function () {
-            window.tb.setSunlight(date, startingPoint.center);
+            window.tb.setSunlight(fixedDate, startingPoint.center);
             window.tb.update();
         }
     });

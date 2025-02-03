@@ -21,16 +21,6 @@ function MapPage({ setIsSoundOn }) {
       <MapNavigation displayMenuHandler={displayMenuHandler} />
       <Map setIsLoading={setIsLoading} />
       <MapBottom />
-      {/* {isLoading ? (
-        <Loader setIsSoundOn={setIsSoundOn} />
-      ) : (
-        <>
-          <Menu display={display} displayMenuHandler={displayMenuHandler} />
-          <MapNavigation displayMenuHandler={displayMenuHandler} />
-          <Map setIsLoading={setIsLoading} />
-          <MapBottom />
-        </>
-      )} */}
     </>
   );
 }
