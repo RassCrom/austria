@@ -39,7 +39,7 @@ function MapPage({ setIsSoundOn }) {
       <Menu display={display} displayMenuHandler={displayMenuHandler} />
       <MapNavigation displayMenuHandler={displayMenuHandler} />
       {currentTopic && <Map topic={currentTopic} setIsLoading={setIsLoading} />}
-      <MapBottom />
+      <MapBottom topic={currentTopic} />
     </>
   );
 }
