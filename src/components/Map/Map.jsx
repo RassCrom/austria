@@ -7,7 +7,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useFetchData } from "@hooks/useFetchData";
 import threed from "./threed";
 import MapInfoSide from "./MapInfoSide/MapInfoSide";
-import { use } from "react";
 
 const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 

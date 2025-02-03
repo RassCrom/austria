@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useFetchData } from '@hooks/useFetchData';
 
 import Loader from "@/Loader/Loader";
@@ -5,6 +6,7 @@ import Loader from "@/Loader/Loader";
 import styles from './MapBottom.module.css';
 
 function MapBottomSlider({ topic, handleSelectedObject }) {
+    const [isHovered, setIsHovered] = useState(false)
     const { data, isLoading } = useFetchData(`/jsons/${topic}.json`);
     if (isLoading) return <Loader />;
     console.log(data);
@@ -14,6 +16,9 @@ function MapBottomSlider({ topic, handleSelectedObject }) {
                 {data.map((item) => (
                     <>
                         <img 
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                            style={{ cursor: 'pointer'}}
                             onClick={() => handleSelectedObject(item.coords)} 
                             src={`images/${item.pic_main}`} 
                             alt={item.title} 

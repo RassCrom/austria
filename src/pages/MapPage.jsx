@@ -42,13 +42,13 @@ function MapPage({ setIsSoundOn }) {
     <>
       {isLoading && <Loader setIsSoundOn={setIsSoundOn} />}
       <Menu display={display} displayMenuHandler={displayMenuHandler} />
-      <MapNavigation displayMenuHandler={displayMenuHandler} />
+      {!isLoading && <MapNavigation displayMenuHandler={displayMenuHandler} />}
       {currentTopic && <Map 
         topic={currentTopic} 
         setIsLoading={setIsLoading} 
         selectedObject={selectedObject} 
       />}
-      <MapBottom topic={currentTopic} handleSelectedObject={handleSelectedObject} />
+      {!isLoading && <MapBottom topic={currentTopic} handleSelectedObject={handleSelectedObject} />}
     </>
   );
 }

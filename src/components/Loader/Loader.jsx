@@ -10,7 +10,7 @@ function Loader({ setIsSoundOn }) {
   return (
     <div className="flex flex-col relative items-center justify-center z-110 w-full h-full mt-0">
       {/* <MapLogo /> */}
-      <div className={styles.loader_container}>
+      <div className={`${styles.loader_container} relative z-111`}>
         <p className={styles.loader_text}>
           This website uses audio to enhance your experience
         </p>
