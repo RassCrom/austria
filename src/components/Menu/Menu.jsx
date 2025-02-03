@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
+import styles from './Menu.module.css';
+
 const Menu = ({ display, displayMenuHandler }) => {
   const menuRef = useRef(null);
 
@@ -26,42 +28,27 @@ const Menu = ({ display, displayMenuHandler }) => {
   return (
     <div
       ref={menuRef}
-      className={`${display} z-20 bg-black/75 absolute w-full h-full flex items-center justify-center`}
+      className={`${styles.menu_outer} ${display} z-20 bg-black/75 absolute w-full h-full flex items-center justify-center`}
     >
-      <div className="bg-black p-6 rounded-lg shadow-lg w-2/5">
+      <div className={`${styles.menu} p-6 rounded-lg shadow-lg w-2/5`}>
         <ul className="flex relative flex-col gap-6 p-20">
           <li className="uppercase">
-            <a href="#" className="text-white hover:text-gray-300">
+            <a href="/wildlife" className="text-white hover:text-gray-300">
               wildlife
             </a>
           </li>
           <li className="uppercase">
-            <a href="#" className="text-white hover:text-gray-300">
+            <a href="/nature" className="text-white hover:text-gray-300">
               must-go
             </a>
           </li>
           <li className="uppercase">
-            <a href="#" className="text-white hover:text-gray-300">
+            <a href="/history" className="text-white hover:text-gray-300">
               explore Austria
             </a>
           </li>
           <li className="uppercase">
-            <a href="#" className="text-white hover:text-gray-300">
-              library
-            </a>
-          </li>
-          <li className="uppercase">
-            <a href="#" className="text-white hover:text-gray-300">
-              red-list
-            </a>
-          </li>
-          <li className="uppercase">
-            <a href="#" className="text-white hover:text-gray-300">
-              map
-            </a>
-          </li>
-          <li className="uppercase">
-            <a href="#" className="text-white hover:text-gray-300">
+            <a href="https://github.com/RassCrom/austria" className="text-white hover:text-gray-300">
               about
             </a>
           </li>

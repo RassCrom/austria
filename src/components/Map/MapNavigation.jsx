@@ -2,7 +2,7 @@ import Logo from "../Header/Logo";
 
 import styles from "../../styles/Navigation.module.css";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setCurrentTopic } from '@store/features/currentTopic/currentTopic';
 
 const MapNavigation = ({ displayMenuHandler }) => {
@@ -20,19 +20,19 @@ const MapNavigation = ({ displayMenuHandler }) => {
         <nav className={`${styles.nav} ${styles.leftNav} flex-1`}>
           <ul className="nav-list flex gap-10">
             <li className="list-item">
-              <a style={{ cursor: "pointer" }}
+              <Link className="text-black" style={{ cursor: "pointer" }}
                 onClick={() => handleChangeTopic("animals")}
-              >red-list animals</a>
+              >red-list animals</Link>
             </li>
             <li className="list-item">
-              <a style={{ cursor: "pointer" }}
+              <Link className="text-black" style={{ cursor: "pointer" }}
                 onClick={() => handleChangeTopic("history")}
-              >sightseeing</a>
+              >sightseeing</Link>
             </li>
             <li className="list-item">
-              <a style={{ cursor: "pointer" }}
+              <Link className="text-black" style={{ cursor: "pointer" }}
                 onClick={() => handleChangeTopic("nature")}
-              >nature</a>
+              >nature</Link>
             </li>
           </ul>
         </nav>
@@ -44,7 +44,7 @@ const MapNavigation = ({ displayMenuHandler }) => {
         <nav className={`${styles.nav} ${styles.rightNav} flex-1`}>
           <ul className="nav-list flex gap-10">
             <li className="list-item">
-              <a style={{ cursor: "pointer" }} onClick={displayMenuHandler}>
+              <a className="text-black" style={{ cursor: "pointer" }} onClick={displayMenuHandler}>
                 menu
               </a>
             </li>
