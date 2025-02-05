@@ -62,27 +62,27 @@ function Map({ setIsLoading, topic, selectedObject }) {
     });
 
     setMap(mapInstance);
-    // mapInstance.setMaxBounds(bounds);
+    mapInstance.setMaxBounds(bounds);
 
     mapInstance.on("load", () => {
       setIsLoading(false);
 
-      if (!mapInstance.getSource("ai")) {
-        mapInstance.addSource("ai", {
+      if (!mapInstance.getSource("cover")) {
+        mapInstance.addSource("cover", {
           type: "vector",
-          tiles: ["http://127.0.0.1:6565/ai/{z}/{x}/{y}.pbf"],
+          tiles: ["http://127.0.0.1:6565/cover/{z}/{x}/{y}.pbf"],
           minzoom: 0,
           maxzoom: 22
         });
       
         mapInstance.addLayer({
-          id: "ai",
+          id: "cover",
           type: "fill",
-          source: "ai",
-          "source-layer": "ai",
+          source: "cover",
+          "source-layer": "cover",
           paint: {
-            "fill-color": "#008000",
-            "fill-opacity": 0
+            "fill-color": "#000",
+            "fill-opacity": 1
           },
           minzoom: 0,
           maxzoom: 22
@@ -105,6 +105,8 @@ function Map({ setIsLoading, topic, selectedObject }) {
       if (selectedGeojson) {
         console.log("Selected GeoJSON:", selectedGeojson);
         addGeoJSONLayer(map, selectedGeojson);
+
+        flyToSelectedObject(map, [13.651, 47.662], 7, 0, 0)
       }
     } else {
       const selectedGeojson = data.find((el) => el.id === selectedItem);
@@ -207,12 +209,12 @@ function removeGeoJSONLayer(map, layerId) {
   }
 }
 
-function flyToSelectedObject(map, coordinates) {
+function flyToSelectedObject(map, coordinates, zoom, p, b) {
   map.flyTo({
     center: coordinates,
-    zoom: 18,
-    pitch: 52,
-    bearing: 40,
+    zoom: zoom || 18,
+    pitch: p || 52,
+    bearing: b || 40,
     speed: 0.5
   });
 }
