@@ -8,18 +8,29 @@
 	  "area": "160 hectares",
 	  "arch_styles": "Baroque architecture",
       "pic_main": "sp_main.jpg",
-      "text_headings": ["History"],
-      "text_main": ["Schönbrunn Palace served as the main summer residence of the Habsburg rulers and is one of Europe's most significant cultural monuments. Over the centuries, it has witnessed the evolving tastes and aspirations of successive monarchs. The palace complex includes designed gardens, ornate fountains, and architectures like the Gloriette and the Roman Ruins. Today, it stands as a UNESCO World Heritage Site, attracting visitors from around the globe to explore its rich history and architectural splendor."],
+      "text_headings": [
+        "🏰 Schoenbrunn Palace – A Royal Retreat",
+        "🌳 Gardens and Greenery",
+        "🎨 A Treasure of Art and History",
+        "⚠️ Preserving a Cultural Heritage"
+      ],
+      "text_main": [
+        "Schoenbrunn Palace, a Baroque masterpiece, served as the summer residence for the Habsburg rulers for centuries. The grand palace complex is a reflection of the aristocratic lifestyle of the time and a symbol of Austrian power.",
+        "The sprawling gardens surrounding the palace are a sight to behold, with formal layouts, beautiful fountains, and iconic structures like the Gloriette, offering visitors a chance to explore the gardens just as the royals once did.",
+        "Apart from its architectural grandeur, Schoenbrunn Palace houses an impressive collection of art, making it a true cultural gem. The palace is home to period rooms, art galleries, and historical exhibitions.",
+        "Recognized as a UNESCO World Heritage Site, Schoenbrunn Palace continues to stand as a testament to Austria's royal past and plays an important role in the country's cultural preservation."
+      ],
       "pic_1": "sp_1.jpg",
       "pic_2": "sp_2.jpg",
       "pic_3": "sp_3.jpg",
       "desc": "",
       "short_desc": "A UNESCO World Heritage Site in Vienna",
       "model": "palace.glb",
-      "coords": [16.312706701131326, 48.18589217547669],
+      "coords": [16.3128090, 48.1857745],
       "layer": ".geojson",
 	  "interesting_facts": "Established in 1752 within the palace grounds, Tiergarten Schönbrunn is the world's oldest continuously operating zoo.",
-	  "url": "https://www.schoenbrunn.at/"
+	  "url": "https://www.schoenbrunn.at/",
+        "sound": "door.mp3"
     },
 	{
       "id": "hb_t",
@@ -29,7 +40,8 @@
 	  "area": "300,000 square meters",
 	  "arch_styles": "Gothic, Renaissance, Baroque, Rococo, and Classicism architecture",
       "pic_main": "hb_main.jpg",
-      "text_main": "Situated in the heart of Vienna, the Hofburg Palace served as the principal imperial residence of the Habsburgs for over seven centuries. Originally a medieval stronghold, it expanded into a complex that now houses numerous museums, the official residence of the Austrian president, and cultural institutions. Visitors can explore its rich history through the Imperial Apartments, the Sisi Museum, and the Imperial Treasury, among other attractions",
+      "text_headings": ["🏰 The Power Center of the Habsburgs", "⏳ Layers of Time", "🐴 The Spanish Riding School"],
+      "text_main": ["For over seven centuries, Hofburg served as the center of Habsburg imperial power. This grand palace complex has expanded from a medieval fortress to the seat of Austria's monarchy, and today houses museums, government offices, and the president’s official residence. Explore the royal apartments, the Sisi Museum, and marvel at treasures of the imperial family in the Treasury.", "Architecturally stunning, Hofburg’s layers of Gothic, Baroque, and Rococo designs reflect the many generations that shaped it. Visitors can walk through centuries of history, from medieval fortifications to 18th-century imperial splendor.", "Located within Hofburg, this historic riding school continues to showcase the Lipizzaner horses and classical dressage performances that have been a tradition since the 16th century."],
       "pic_1": "hb_1.jpg",
       "pic_2": "hb_2.jpg",
       "pic_3": "hb_3.jpg",
@@ -39,7 +51,8 @@
       "coords": [16.3647795, 48.2056563],
       "layer": ".geojson",
 	  "interesting_facts": "Located within the Hofburg, Spanish riding school is renowned for its Lipizzaner horses and classical dressage performances, maintaining traditions that date back to the 16th century",
-	  "url": "https://www.wien.info/de/kunst-kultur/imperiales/hofburg-wien"
+	  "url": "https://www.wien.info/de/kunst-kultur/imperiales/hofburg-wien",
+        "sound": "door.mp3"
     },
 	{
       "id": "so_t",
@@ -49,7 +62,8 @@
 	  "area": "",
 	  "arch_styles": "Renaissance Revival architecture",
       "pic_main": "so_main.jpg",
-      "text_main": "Originally known as the Vienna Court Opera, it became the Vienna State Opera following the establishment of the First Austrian Republic in 1921. The institution has played a important role in the world of opera and ballet, hosting numerous world premieres and fostering the careers of illustrious composers, conductors, and performers. Despite challenges, including significant damage during World War II, the opera house has been restored and continues to be a beacon of artistic excellence.",
+      "text_headings": ["🎶 A World-Class Opera House", "🎻 A Legacy of Art and Music", "🌍 A Global Influence"],
+      "text_main": ["The Vienna State Opera is a cornerstone of Austria’s rich musical tradition. Since opening its doors in 1869, it has been the stage for some of the world’s most remarkable performances, premiering works by composers like Mozart and Strauss.", "Home to both opera and ballet, this iconic institution continues to foster the careers of illustrious performers and composers. Despite the destruction it faced during World War II, the opera house was restored to its former glory and remains a beacon of artistic excellence.", "With its lavish interiors and world-class acoustics, the Vienna State Opera attracts visitors and artists from around the globe, contributing to the city’s reputation as the capital of classical music."],
       "pic_1": "so_1.jpg",
       "pic_2": "so_2.jpg",
       "pic_3": "so_3.jpg",
@@ -59,7 +73,8 @@
       "coords": [16.3691998, 48.2034254],
       "layer": ".geojson",
 	  "interesting_facts": "The opera house opened with Mozart's 'Don Giovanni' on May 25, 1869, performed in German.",
-	  "url": "https://www.wiener-staatsoper.at/"
+	  "url": "https://www.wiener-staatsoper.at/",
+        "sound": "door.mp3"
     },  
 	{
       "id": "sb_t",
@@ -69,7 +84,8 @@
 	  "area": "",
 	  "arch_styles": "Baroque architecture",
       "pic_main": "sb_main.jpg",
-      "text_main": "The Schloss Belvedere complex, consisting of the Upper and Lower Belvedere, was commissioned by Prince Eugene of Savoy in the early 18th century as his summer residence. Today, it houses the Belvedere Museum, which holds an extensive collection of Austrian art, including the world's largest collection of Gustav Klimt's paintings. The surrounding gardens, designed in the formal French style, feature tiered fountains, cascades, and Baroque sculptures, offering visitors a harmonious blend of art, architecture, and nature.",
+      "text_headings": [],
+      "text_main": [],
       "pic_1": "sb_1.jpg",
       "pic_2": "sb_2.jpg",
       "pic_3": "sb_3.jpg",
@@ -79,7 +95,8 @@
       "coords": [16.3809156, 48.1914681],
       "layer": ".geojson",
 	  "interesting_facts": "The Belvedere Museum houses the world's largest collection of Gustav Klimt's paintings.",
-	  "url": "https://www.belvedere.at/"
+	  "url": "https://www.belvedere.at/",
+        "sound": "door.mp3"
     },  
 	{
       "id": "km_t",
@@ -89,7 +106,8 @@
 	  "area": "",
 	  "arch_styles": "Historicist architecture",
       "pic_main": "km_main.jpg",
-      "text_main": "Commissioned by Emperor Franz Joseph I, the Kunsthistorisches Museum was established to house the extensive art collections of the Habsburg dynasty. Located on Vienna's Ringstrasse, opposite the Natural History Museum, it was opened in 1891. The museum's interior is as impressive as its exterior, with marble staircases, gilded ceilings, and elaborate murals. Its collections span from ancient Egyptian artifacts to Renaissance masterpieces, reflecting centuries of art and culture.",
+      "text_headings": [],
+      "text_main": [], 
       "pic_1": "km_1.jpg",
       "pic_2": "km_2.jpg",
       "pic_3": "km_3.jpg",
@@ -99,7 +117,8 @@
       "coords": [16.3617754, 48.2037972],
       "layer": ".geojson",
 	  "interesting_facts": "The museum houses one of the world's largest collections of Bruegel paintings, including the famous 'Hunters in the Snow'.",
-	  "url": "https://www.khm.at/"
+	  "url": "https://www.khm.at/",
+        "sound": "door.mp3"
     },
 	{
       "id": "mp_t",
@@ -109,7 +128,8 @@
 	  "area": "",
 	  "arch_styles": "Baroque architecture",
       "pic_main": "mp_main.jpg",
-      "text_main": "Mirabell Palace, constructed by Prince-Archbishop Wolf Dietrich Raitenau, stands as a testament to Salzburg's rich history and Baroque artistry. Originally named Schloss Altenau, it was later renamed Mirabell by Archbishop Mark Sittich von Hohenems. The palace is renowned for its magnificent gardens, which were redesigned in the Baroque style in the 18th century. Today, Mirabell Palace and its gardens are part of the Historic Center of the City of Salzburg UNESCO World Heritage Site and serve as a popular venue for weddings and cultural events.",
+      "text_headings": [],
+      "text_main": [],
       "pic_1": "mp_1.jpg",
       "pic_2": "mp_2.jpg",
       "pic_3": "mp_3.jpg",
@@ -119,7 +139,8 @@
       "coords": [13.0417156, 47.8054302],
       "layer": ".geojson",
 	  "interesting_facts": "Several scenes from the iconic film 'The Sound of Music' were filmed in the Mirabell Gardens, including the famous 'Do-Re-Mi' sequence.",
-	  "url": "https://www.salzburg.info/en/sights/top10/mirabell-palace-gardens"
+	  "url": "https://www.salzburg.info/en/sights/top10/mirabell-palace-gardens",
+        "sound": "door.mp3"
     },
 	{
       "id": "gs_t",
@@ -129,7 +150,8 @@
 	  "area": "",
 	  "arch_styles": "Medieval and Baroque architecture",
       "pic_main": "gs_main.jpg",
-      "text_main": "The Grazer Schlossberg stands as a testament to Graz's rich history, offering visitors natural beauty and historical significance. Accessible via funicular railway, glass elevator, or a series of staircases, the hill provides panoramic views of the city's red-tiled roofs and beyond. Key attractions include the iconic Clock Tower, which has been a symbol of Graz since 1712, and the surrounding bastions and gardens that invite exploration. The Schlossberg serves as a central recreational area, hosting open-air performances and offering shaded retreats throughout the year.",
+      "text_headings": [],
+      "text_main": [], 
       "pic_1": "gs_1.jpg",
       "pic_2": "gs_2.jpg",
       "pic_3": "gs_3.jpg",
@@ -139,7 +161,8 @@
       "coords": [15.4385376, 47.0757336],
       "layer": ".geojson",
 	  "interesting_facts": "Visitors can reach the summit via the Schlossberg Funicular railway, a glass lift ascending inside the mountain.",
-	  "url": "https://www.graztourismus.at/"
+	  "url": "https://www.graztourismus.at/",
+        "sound": "door.mp3"
     },
 	{
       "id": "sa_t",
@@ -149,7 +172,8 @@
 	  "area": "",
 	  "arch_styles": "Renaissance architecture",
       "pic_main": "sa_main.jpg",
-      "text_main": "Perched above Innsbruck, Schloss Ambras stands as a testament to Renaissance art and culture. Archduke Ferdinand II, a notable patron of the arts, established one of the world's earliest museums here, housing his extensive collections. Today, visitors can explore the armories, the Chamber of Art and Wonders, and the opulent Spanish Hall, all set within beautifully maintained gardens.",
+      "text_headings": [],
+      "text_main": [],
       "pic_1": "sa_1.jpg",
       "pic_2": "sa_2.jpg",
       "pic_3": "sa_3.jpg",
@@ -159,7 +183,8 @@
       "coords": [11.4333344, 47.2563980],
       "layer": ".geojson",
 	  "interesting_facts": "Archduke Ferdinand II's Chamber of Art and Wonders at Schloss Ambras is considered one of the earliest museums, showcasing a diverse collection of artifacts.",
-	  "url": "https://www.schlossambras-innsbruck.at/"
+	  "url": "https://www.schlossambras-innsbruck.at/",
+        "sound": "door.mp3"
     },
 	{
       "id": "bh_t",
@@ -169,7 +194,8 @@
 	  "area": "",
 	  "arch_styles": "Medieval military architecture",
       "pic_main": "bh_main.jpg",
-      "text_main": "Burg Hohenwerfen stands as a testament to medieval fortification, offering visitors an immersive experience into its storied past. Beyond its historical architecture, the castle is renowned for its falconry demonstrations, providing insight into ancient hunting traditions. The fortress also hosts various events and exhibitions, making it a vibrant cultural destination. ",
+      "text_headings": [],
+      "text_main": [],
       "pic_1": "bh_1.jpg",
       "pic_2": "bh_2.jpg",
       "pic_3": "bh_3.jpg",
@@ -179,7 +205,8 @@
       "coords": [13.1890869, 47.4831048],
       "layer": ".geojson",
 	  "interesting_facts": "The castle is famous for its daily falconry shows, showcasing birds of prey in flight.",
-	  "url": "https://www.burg-hohenwerfen.at"
+	  "url": "https://www.burg-hohenwerfen.at",
+        "sound": "door.mp3"
     },
 	{
       "id": "fh_t",
@@ -189,7 +216,8 @@
 	  "area": "",
 	  "arch_styles": "Medieval architecture",
       "pic_main": "fh_main.jpg",
-      "text_main": "Festung Hohensalzburg offers visitors a journey through 900 years of architectural history. As one of the largest existing castle complexes in Europe from the 11th century, it provides a glimpse into medieval life and the strategic importance of Salzburg throughout history. Today, the fortress is a major tourist attraction, offering panoramic views of the city and housing museums that showcase its rich past.",
+      "text_headings": [],
+      "text_main": [],
       "pic_1": "fh_1.jpg",
       "pic_2": "fh_2.jpg",
       "pic_3": "fh_3.jpg",
@@ -199,6 +227,7 @@
       "coords": [13.0476379, 47.7949372],
       "layer": ".geojson",
 	  "interesting_facts": "The fortress provides stunning vistas over Salzburg and the surrounding Alps, making it a favorite spot for photographers.",
-	  "url": "https://www.salzburg-burgen.at"
+	  "url": "https://www.salzburg-burgen.at",
+        "sound": "door.mp3"
     }
 ]

@@ -6,7 +6,8 @@
     "population": "",
     "pop_i": 0,
     "pic_main": "fs_main.png",
-    "text_main": "A number of large, stable subpopulations of this salamander exist in Central Europe. Some local subpopulation declines have been observed over parts of its range (e.g. through habitat loss, introduced predatory fish, and increased aridity in Spain). A severe decline has been reported in the Netherlands. Some local subpopulations have disappeared, and its population density has also been reduced in parts of Spain. In Italy, localized declines due to habitat loss have been observed in Apen (F. Ficetola and R. Manenti pers. comm. September 2019). Due to the ongoing decline in the extent and quality of its habitat and the threat of Bsal, the population is continuing to decrease.",
+    "text_headings": ["🐉 Fire Salamander – The Living Flame of Austria", "🔥 A Fireproof Legend", "🌲 Masters of the Underworld"],
+    "text_main": ["Imagine walking through Austria’s misty forests after a rainstorm, and suddenly, a creature black as midnight with vivid yellow spots slithers across the damp earth—it’s the Fire Salamander (Salamandra salamandra). But don’t let its bright colors fool you; it’s not just for show. This amphibian secretes a mild toxin, making it one of Austria’s most badass survivalists in the wild.", "Medieval tales claimed that these salamanders were born from fire, crawling out of burning logs unscathed. While that's just a myth, they do have an incredible ability to regenerate limbs—a superpower few creatures on Earth possess!", "Unlike frogs that hop around freely, fire salamanders prefer the hidden world beneath logs, rocks, and damp soil. They even give birth to live young, skipping the egg stage—because who has time for that?"],
     "pic_1": "fs_1.png",
     "pic_2": "fs_2.png",
     "pic_3": "fs_3.png",
@@ -19,7 +20,8 @@
     "coords": [14.52595, 47.63356],
     "layer": "fs_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/59467/219148292",
-    "id": "fs_a"
+    "id": "fs_a",
+    "sound": "fs.mp3"
   },
   {
     "title": "Alpine Ibex",
@@ -28,7 +30,8 @@
     "population": "53000",
     "pop_i": 53000,
     "pic_main": "ai_main.png",
-    "text_main": "",
+    "text_headings": ["🦌 Alpine Ibex – The Daredevil of the Alps", "🏔 Rock-Climbing Masters", "💪 Comeback Kings", "🐐 Headbutting Champions"],
+    "text_main": ["High up in Austria’s rugged peaks, where even expert climbers struggle, the Alpine Ibex (Capra ibex) moves with ease, defying gravity like an extreme sports champion.", "Their hooves act like natural climbing shoes, gripping even the steepest rock faces with shocking precision. These goats can scale near-vertical cliffs with nothing but sheer confidence and rock-hard determination.", "Once hunted to near extinction, Alpine ibexes made an epic comeback, thanks to conservation efforts. From just a handful of survivors, their population has climbed back to over 53,000 strong!", "Male ibexes settle disputes by literally smashing their massive, curved horns against each other. It’s nature’s version of a medieval joust—except with way more attitude."],
     "pic_1": "ai_1.png",
     "pic_2": "ai_2.png",
     "pic_3": "ai_3.png",
@@ -41,7 +44,8 @@
     "coords": [12.02832, 47.20058],
     "layer": "ai_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/42397/219261343",
-    "id": "ai_a"
+    "id": "ai_a",
+    "sound": "ai.mp3"
   },
   {
     "title": "Eurasian Lynx",
@@ -50,7 +54,8 @@
     "population": "9000-10000*",
     "pop_i": 9500,
     "pic_main": "el_main.jpg",
-    "text_main": "",
+    "text_headings": ["🐱 Eurasian Lynx – The Ghost of the Forest", "👀 Stealthy Hunters", "🐾 Silent but Deadly", "🔄 A Conservation Comeback"],
+    "text_main": ["With tufted ears and a thick spotted coat, the Eurasian lynx (Lynx lynx) is Austria’s most elusive predator, silently roaming deep forests like a phantom.", "A lynx’s vision is six times better than a human’s! Even in near darkness, it can spot prey from over 75 meters away—bad news for unsuspecting hares and deer.", "These cats move like ninjas. Their wide paws act as natural snowshoes, and their padded feet allow them to walk soundlessly, giving them the perfect edge in a surprise attack.", "Once wiped out from most of Central Europe, lynxes are making a slow but steady comeback, thanks to reintroduction efforts. Seeing one in the wild is a rare but unforgettable experience."],
     "pic_1": "el_1.jpg",
     "pic_2": "el_2.jpg",
     "pic_3": "el_3.jpg",
@@ -63,7 +68,8 @@
     "coords": [14.61423, 48.40107],
     "layer": "el_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/12519/177350310",
-    "id": "el_a"
+    "id": "el_a",
+    "sound": "el.mp3"
   },
   {
     "title": "Scarce Large Blue",
@@ -72,8 +78,8 @@
     "population": "10000-20000",
     "pop_i": 15000,
     "pic_main": "slb_main.jpg",
-    "text_headings": ["🏰 Royal Past, Wild Future", "🐇 Speed Demons & Zigzag Runners"],
-    "text_main": ["Did you know that European rabbits weren’t always part of Austria’s wild landscape? They were once considered exclusive royal pets, kept in medieval hunting parks and monasteries. But like true escape artists, some of them made a break for it—and today, they’ve established themselves across the countryside, from Vienna’s city parks to the alpine foothills.", "Think rabbits are easy prey? Think again! European rabbits can reach speeds of up to 40 km/h (25 mph) and use unpredictable zigzag running patterns to escape foxes, birds of prey, and even the occasional curious dog. Their powerful hind legs can launch them nearly one meter into the air—a natural parkour expert!"],
+    "text_headings": ["🦋 Scarce Large Blue – A Butterfly with a Secret", "🐜 A Strange Life Cycle", "🌸 Wildflower Addicts", "⚠️ A Species in Danger"],
+    "text_main": ["The Scarce Large Blue (Phengaris teleius) might look delicate, but its life story is packed with unexpected twists and turns.", "As a caterpillar, this butterfly pulls off a bizarre trick—it tricks ants into thinking it's one of their own! The ants carry it into their nest, where it spends months being fed like royalty before finally transforming into a butterfly.", "This butterfly is a picky eater! It only lays eggs on specific plants like the great burnet, making it heavily dependent on certain wildflower meadows.", "Due to habitat destruction, these stunning butterflies are becoming harder to find. Without the right plants and ant colonies, they can’t survive, making conservation efforts critical."],
     "pic_1": "slb_1.jpg",
     "pic_2": "slb_2.webp",
     "pic_3": "slb_3.webp",
@@ -86,7 +92,8 @@
     "coords": [14.73443, 48.08711],
     "layer": "slb_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/12664/3372061",
-    "id": "slb_a"
+    "id": "slb_a",
+    "sound": "slb.mp3"
   },
   {
     "title": "Greater Spotted Eagle",
@@ -95,8 +102,8 @@
     "population": "1900-2500",
     "pop_i": 2200,
     "pic_main": "gse_main.webp",
-    "text_headings": ["🏰 Royal Past, Wild Future", "🐇 Speed Demons & Zigzag Runners"],
-    "text_main": ["Did you know that European rabbits weren’t always part of Austria’s wild landscape? They were once considered exclusive royal pets, kept in medieval hunting parks and monasteries. But like true escape artists, some of them made a break for it—and today, they’ve established themselves across the countryside, from Vienna’s city parks to the alpine foothills.", "Think rabbits are easy prey? Think again! European rabbits can reach speeds of up to 40 km/h (25 mph) and use unpredictable zigzag running patterns to escape foxes, birds of prey, and even the occasional curious dog. Their powerful hind legs can launch them nearly one meter into the air—a natural parkour expert!"],
+    "text_headings": ["🦅 Greater Spotted Eagle – The Shadow in the Sky", "🌍 A True Migrant", "🦆 A Duck Hunter", "📉 On the Brink"],
+    "text_main": ["Majestic and mysterious, the Greater Spotted Eagle (Clanga clanga) soars above Austria’s wetlands, scanning the ground with razor-sharp vision.", "This eagle doesn’t stay in one place for long—it’s a long-distance traveler, migrating thousands of kilometers between Europe and Asia every year.", "Unlike most eagles, this species has a special taste for ducks! It swoops down with precision, snatching water birds right from the surface.", "Once common, these eagles are now in serious trouble due to habitat loss and hunting. With only around 2,200 individuals left, every sighting is a rare and precious moment."],
     "pic_1": "gse_1.jpg",
     "pic_2": "gse_2.jpeg",
     "pic_3": "gse_3.webp",
@@ -109,7 +116,8 @@
     "coords": [15.18775, 47.12498],
     "layer": "gse_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/22696027/166302380",
-    "id": "gse_a"
+    "id": "gse_a",
+    "sound": "gse.mp3"
   },
   {
     "title": "Common Hamster",
@@ -118,8 +126,8 @@
     "population": "~10000",
     "pop_i": 10000,
     "pic_main": "ch_main.jpg",
-    "text_headings": ["🏰 Royal Past, Wild Future", "🐇 Speed Demons & Zigzag Runners"],
-    "text_main": ["Did you know that European rabbits weren’t always part of Austria’s wild landscape? They were once considered exclusive royal pets, kept in medieval hunting parks and monasteries. But like true escape artists, some of them made a break for it—and today, they’ve established themselves across the countryside, from Vienna’s city parks to the alpine foothills.", "Think rabbits are easy prey? Think again! European rabbits can reach speeds of up to 40 km/h (25 mph) and use unpredictable zigzag running patterns to escape foxes, birds of prey, and even the occasional curious dog. Their powerful hind legs can launch them nearly one meter into the air—a natural parkour expert!"],
+    "text_headings": ["🐹 Common Hamster – The Tiny Warrior", "🍽 Underground Food Hoarder", "🥊 Fiesty Fighters", "🚨 A Species in Crisis"],
+    "text_main": ["Forget pet store hamsters—Austria’s wild common hamsters (Cricetus cricetus) are fierce, feisty, and built for survival.", "These little creatures are the ultimate food preppers! They can stash up to 3 kilograms of food in underground burrows, stocking up for the harsh winter.", "Despite their small size, common hamsters don’t back down from a fight. They stand on their hind legs, bare their teeth, and charge at threats like tiny gladiators.", "Once widespread, these hamsters are now critically endangered due to urban expansion and agriculture. Without urgent conservation efforts, they could disappear forever."],
     "pic_1": "ch_1.jpg",
     "pic_2": "ch_2.jpg",
     "pic_3": "ch_3.png",
@@ -132,7 +140,8 @@
     "coords": [16.44805, 48.27770],
     "layer": "ch_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/5529/221788781",
-    "id": "ch_a"
+    "id": "ch_a",
+    "sound": "ch.mp3"
   },
   {
     "title": "European Rabbit",
@@ -154,7 +163,8 @@
     "model": "er.glb",
     "coords": [14.14145, 47.58691],
     "layer": "er_habitat.geojson",
-    "id": "er_a"
+    "id": "er_a",
+    "sound": "er.mp3"
   },
   {
     "title": "European Ground Squirrel",
@@ -163,7 +173,8 @@
     "population": "",
     "pop_i": 0,
     "pic_main": "egs_main.jpg",
-    "text_main": "",
+    "text_headings": ["🐿 European Ground Squirrel – The Alert Sentinel", "📢 Loud and Talkative", "⏳ A Master of Hibernation", "🌾 Grassland Guardian"],
+    "text_main": ["Always on high alert, the European Ground Squirrel (Spermophilus citellus) is Austria’s very own tiny watchman, keeping an eye out for danger.", "These social rodents use an advanced system of chirps and whistles to warn their colony of predators, creating a constant chatter in the grasslands.", "Ground squirrels are hibernation experts! They sleep for up to six months during the cold months, surviving purely on fat reserves built up in summer.", "By digging burrows and aerating the soil, these squirrels play a crucial role in maintaining healthy grassland ecosystems. They’re tiny but essential engineers of their habitat."],
     "pic_1": "egs_1.jpg",
     "pic_2": "egs_2.jpg",
     "pic_3": "egs_3.jpg",
@@ -175,7 +186,8 @@
     "model": "animal.glb",
     "coords": [16.37462, 48.35133],
     "layer": "egs_habitat.geojson",
-    "id": "egs_a"
+    "id": "egs_a",
+    "sound": "egs.mp3"
   },
   {
     "title": "Eurasian Otter",
@@ -184,7 +196,8 @@
     "population": "12000+",
     "pop_i": 0,
     "pic_main": "eo_main.jpg",
-    "text_main": "",
+    "text_headings": ["🦦 Eurasian Otter – The Playful Fisher", "💦 Built for Water", "🐟 A Deadly Hunter", "📉 A Conservation Success Story"],
+    "text_main": ["With its sleek body and playful nature, the Eurasian Otter (Lutra lutra) is one of Austria’s most charismatic animals, gliding effortlessly through rivers and streams.", "Otters are designed for aquatic life. Their webbed feet, dense fur, and streamlined shape make them agile swimmers, capable of catching fish with incredible speed.", "Don’t be fooled by their cute looks—these animals are top predators! They can eat up to 1 kg of fish per day and use their sharp teeth to grip slippery prey.", "Once nearly extinct in much of Europe due to pollution and hunting, Eurasian otters have made an incredible comeback, proving that conservation really works!"],
     "pic_1": "eo_1.png",
     "pic_2": "eo_2.jpg",
     "pic_3": "eo_3.png",
@@ -196,7 +209,8 @@
     "model": "animal.glb",
     "coords": [14.63273, 47.64332],
     "layer": "eo_habitat.geojson",
-    "id": "eo_a"
+    "id": "eo_a",
+    "sound": "eo.mp3"
   },
   {
     "title": "European Pond Turtle",
@@ -205,7 +219,8 @@
     "population": "",
     "pop_i": 0,
     "pic_main": "ept_main.jpg",
-    "text_main": "In the stillness of Europe’s hidden wetlands, where reeds whisper secrets to the wind, a shadow glides beneath the surface. The European Pond Turtle (Emys orbicularis)—a relic of an ancient world—moves with quiet grace, its golden-flecked shell glistening like an artifact lost in time. Born from sun-warmed nests hidden in the soft banks of rivers and ponds, hatchlings the size of a coin emerge, their journey perilous from the start. They scuttle toward the water, avoiding the watchful eyes of herons and foxes, drawn by an instinct as old as the Ice Age itself. Masters of patience, these turtles can remain motionless for hours, waiting for an unsuspecting frog or fish to drift too close. On summer afternoons, they bask on floating logs, absorbing the sun’s warmth like tiny, living fossils. But at the slightest disturbance, they vanish beneath the water, slipping into the shadows like ghosts of the marsh. Legends whisper that these ancient swimmers bring wisdom, symbols of endurance and survival. For centuries, they have watched the world change around them, surviving against the odds. And even now, in the hidden corners of Europe, where the waters remain wild and free, the European Pond Turtle endures—silent, mysterious, eternal.",
+    "text_headings": ["🐢 European Pond Turtle – A Living Fossil", "⏳ Centuries of Survival", "🏞 The Water Wanderer", "🚨 A Species Under Threat"],
+    "text_main": ["The European Pond Turtle (Emys orbicularis) has been around for millions of years, surviving ice ages and changing climates.", "These turtles live incredibly long lives—some individuals have reached over 100 years old! They’re true testaments to patience and resilience.", "They love slow-moving waters like ponds, marshes, and lakes, spending hours basking in the sun before slipping back into the water.", "Due to habitat destruction and pollution, these turtles are struggling to survive in the wild. Conservation efforts are crucial to ensuring they don’t vanish forever."],
     "pic_1": "ept_1.jpg",
     "pic_2": "ept_2.jpg",
     "pic_3": "ept_3.jpg",
@@ -218,6 +233,7 @@
     "coords": [14.72027, 47.69381],
     "layer": "fs_habitat.geojson",
     "url": "https://www.iucnredlist.org/species/7717/207667247",
-    "id": "ept_a"
+    "id": "ept_a",
+    "sound": "ept.mp3"
   }
 ]

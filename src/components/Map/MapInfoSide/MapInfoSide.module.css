@@ -67,6 +67,13 @@
     fill: #E9C46A;
 }
 
+.map_info__heading_outer {
+    line-height: 1.2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .map_info__heading {
     font-size: 2rem;
     font-family: 'Playfair Display SC';
@@ -79,11 +86,21 @@
     color: transparent;
 }
 
+.map_info__heading_outer img {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
 .map_info__stats {
     margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1rem;
+}
+
+.map_info__stats > :last-child {
+    grid-column: span 2;
 }
 
 .map_info__status {

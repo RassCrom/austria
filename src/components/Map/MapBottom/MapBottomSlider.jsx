@@ -9,7 +9,7 @@ function MapBottomSlider({ topic, handleSelectedObject }) {
     const [isHovered, setIsHovered] = useState(false)
     const { data, isLoading } = useFetchData(`/jsons/${topic}.json`);
     if (isLoading) return <Loader />;
-    console.log(data);
+    // console.log(data);
     return (
         <div className={styles.bottom_line_container}>
             <div className={styles.horizontal_line}>

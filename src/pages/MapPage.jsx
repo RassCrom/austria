@@ -26,7 +26,7 @@ function MapPage({ setIsSoundOn }) {
   }
 
   useEffect(() => {
-    console.log(currentTopic)
+    // console.log(currentTopic)
     if (!currentTopic) {
       navigate("/");
       // const topic = prompt("Выберите тему: wildlife, history, nature");

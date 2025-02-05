@@ -16,7 +16,7 @@ const bounds = [
 ];
 
 const startingPoint = {
-  center: [14.14145, 47.58691],
+  center:[14.14145, 47.58691],//, [71.39495499999998,51.19494089311223]
   zoom: 18,
   pitch: 52,
   bearing: 40,
@@ -30,6 +30,7 @@ function Map({ setIsLoading, topic, selectedObject }) {
     selectedItem: state.mapInfo.activeInfo,
     isSideShown: state.mapInfo.shownInfo
   }));
+  const shownGeojson = useSelector((state) => state.mapInfo.shownGeojson)
   const dispatch = useDispatch();
 
   const mapContainerRef = useRef(null);
@@ -38,7 +39,6 @@ function Map({ setIsLoading, topic, selectedObject }) {
   useEffect(() => {
     if (!map || !selectedObject) return;
 
-    // const selectedItemData = data.find((el) => el.title === selectedItem);
     if (selectedObject) {
       flyToSelectedObject(map, selectedObject);
     }
@@ -62,9 +62,32 @@ function Map({ setIsLoading, topic, selectedObject }) {
     });
 
     setMap(mapInstance);
-    mapInstance.setMaxBounds(bounds);
+    // mapInstance.setMaxBounds(bounds);
+
     mapInstance.on("load", () => {
       setIsLoading(false);
+
+      if (!mapInstance.getSource("ai")) {
+        mapInstance.addSource("ai", {
+          type: "vector",
+          tiles: ["http://127.0.0.1:6565/ai/{z}/{x}/{y}.pbf"],
+          minzoom: 0,
+          maxzoom: 22
+        });
+      
+        mapInstance.addLayer({
+          id: "ai",
+          type: "fill",
+          source: "ai",
+          "source-layer": "ai",
+          paint: {
+            "fill-color": "#008000",
+            "fill-opacity": 0
+          },
+          minzoom: 0,
+          maxzoom: 22
+        });
+      }
     });
 
     return () => mapInstance.remove();
@@ -73,20 +96,26 @@ function Map({ setIsLoading, topic, selectedObject }) {
   useEffect(() => {
     if (!map || !data) return;
 
-    const models = data.filter((el) =>
-      ['Schoenbrunn Palace'].includes(el.title)
-    );
-
     if (data) {
-      threed(startingPoint, map, models, dispatch, isSideShown)
+      threed(startingPoint, map, data, dispatch, isSideShown)
+    }
+
+    if (topic === 'animals' && shownGeojson) {
+      const selectedGeojson = data.find((el) => el.id === selectedItem);
+      if (selectedGeojson) {
+        console.log("Selected GeoJSON:", selectedGeojson);
+        addGeoJSONLayer(map, selectedGeojson);
+      }
+    } else {
+      const selectedGeojson = data.find((el) => el.id === selectedItem);
+      if (selectedGeojson) {
+        removeGeoJSONLayer(map, selectedGeojson.id);
+      }
     }
 
     const loadLayers = async () => {
       try {
         await setupFogAndSnowEffects(map);
-        // await addTerrain(map);
-        await fetchGeoJSON(map);
-        await loadCustomIcons(map);
       } catch (err) {
         console.error("Error loading map layers:", err);
       }
@@ -98,7 +127,7 @@ function Map({ setIsLoading, topic, selectedObject }) {
       threed(startingPoint, map, [], dispatch, isSideShown)
       map.off('load', loadLayers);
     }
-  }, [map, data, dispatch, isSideShown, topic]);
+  }, [map, data, dispatch, isSideShown, topic, shownGeojson, selectedItem]);
 
   return (
     <div id="map-container" ref={mapContainerRef}>
@@ -136,84 +165,46 @@ async function setupFogAndSnowEffects(map) {
   map.setConfigProperty('basemap', 'lightPreset', 'day');
 }
 
-async function addTerrain(map) {
-  map.addSource('mapbox-dem', {
-    type: 'raster-dem',
-    url: 'mapbox://mapbox.terrain-rgb',
-    tileSize: 512,
-    maxzoom: 14
-  });
-
-  map.setTerrain({ source: 'mapbox-dem', exaggeration: 1 });
-}
-
-async function fetchGeoJSON(map) {
-  const geoJSONFiles = ["/layers/fsg.geojson", "/layers/test_elev.geojson"];
-  const [salamanderRes, testElevRes] = await Promise.all(geoJSONFiles.map(url => axios.get(url)));
-
-  if (salamanderRes.data) {
-    map.addSource("salamander", { type: "geojson", data: salamanderRes.data });
-    map.addLayer({
-      id: "salamander-layer",
-      type: "fill",
-      source: "salamander",
-      paint: {
-        "fill-color": "#0080ff",
-        "fill-opacity": 0,
-        "fill-opacity-transition": { duration: 800 }
-      }
-    });
+async function addGeoJSONLayer(map, geojsonData) {
+  if (!map || !geojsonData || !geojsonData.id || !geojsonData.layer) {
+    console.error("Invalid GeoJSON data or map instance.");
+    return;
   }
 
-  if (testElevRes.data) {
-    map.addSource("test_e", { type: "geojson", data: testElevRes.data });
-    map.addLayer({
-      id: "test_e-layer",
-      type: "fill-extrusion",
-      source: "test_e",
-      paint: {
-        "fill-extrusion-color": "white",
-        "fill-extrusion-height": 100,
-        "fill-extrusion-base": 0,
-        "fill-extrusion-opacity": 0.0000000001
-      }
-    });
-  }
-}
+  try {
+    const { id, layer } = geojsonData;
+    const response = await axios(`/layers/${layer}`);
+    const data = response.data;
 
-async function loadCustomIcons(map) {
-  map.addSource("test_arm", {
-    type: "geojson",
-    data: {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          geometry: { type: "Point", coordinates: [13.355586, 47.821561] },
-          properties: {}
-        }
-      ]
+    if (!map.getSource(id)) {
+      map.addSource(id, { type: "geojson", data });
+
+      map.addLayer({
+        id: `${id}-layer`,
+        type: "fill",
+        source: id,
+        paint: {
+          "fill-color": "#0080ff",
+          "fill-opacity": 0.6,
+          "fill-opacity-transition": { duration: 500 },
+        },
+      });
     }
-  });
+  } catch (error) {
+    console.error("Error loading GeoJSON:", error);
+  }
+}
 
-  map.loadImage("/images/arrow.png", (error, image) => {
-    if (error) throw error;
+function removeGeoJSONLayer(map, layerId) {
+  if (!map || !layerId) return;
 
-    map.addImage("cat-icon", image);
-    map.addLayer({
-      id: "test_arm-layer",
-      type: "symbol",
-      source: "test_arm",
-      layout: {
-        "icon-image": "cat-icon",
-        "icon-size": 1,
-        "icon-anchor": "bottom",
-        "symbol-placement": "point",
-        "symbol-z-elevate": true
-      },
-      paint: { "icon-translate": [0, 0] }
-    });
-  });
+  if (map.getLayer(`${layerId}-layer`)) {
+    map.removeLayer(`${layerId}-layer`);
+  }
+
+  if (map.getSource(layerId)) {
+    map.removeSource(layerId);
+  }
 }
 
 function flyToSelectedObject(map, coordinates) {
