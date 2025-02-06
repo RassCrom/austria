@@ -56,7 +56,7 @@ function Map({ setIsLoading, topic, selectedObject }) {
       projection: 'globe',
       accessToken: mapboxToken,
       ...startingPoint,
-      hash: true,
+      hash: false,
       antialias: true,
       config: { basemap: {  show3dObjects: false  }  }
     });
@@ -64,31 +64,31 @@ function Map({ setIsLoading, topic, selectedObject }) {
     setMap(mapInstance);
     mapInstance.setMaxBounds(bounds);
 
-    mapInstance.on("load", () => {
-      setIsLoading(false);
+    // mapInstance.on("load", () => {
+    //   setIsLoading(false);
 
-      if (!mapInstance.getSource("cover")) {
-        mapInstance.addSource("cover", {
-          type: "vector",
-          tiles: ["http://127.0.0.1:6565/cover/{z}/{x}/{y}.pbf"],
-          minzoom: 0,
-          maxzoom: 22
-        });
+    //   if (!mapInstance.getSource("cover")) {
+    //     mapInstance.addSource("cover", {
+    //       type: "vector",
+    //       tiles: ["http://127.0.0.1:6565/cover/{z}/{x}/{y}.pbf"],
+    //       minzoom: 0,
+    //       maxzoom: 22
+    //     });
       
-        mapInstance.addLayer({
-          id: "cover",
-          type: "fill",
-          source: "cover",
-          "source-layer": "cover",
-          paint: {
-            "fill-color": "#000",
-            "fill-opacity": 1
-          },
-          minzoom: 0,
-          maxzoom: 22
-        });
-      }
-    });
+    //     mapInstance.addLayer({
+    //       id: "cover",
+    //       type: "fill",
+    //       source: "cover",
+    //       "source-layer": "cover",
+    //       paint: {
+    //         "fill-color": "#000",
+    //         "fill-opacity": 1
+    //       },
+    //       minzoom: 0,
+    //       maxzoom: 22
+    //     });
+    //   }
+    // });
 
     return () => mapInstance.remove();
   }, [setIsLoading, topic]);
@@ -210,6 +210,7 @@ function removeGeoJSONLayer(map, layerId) {
 }
 
 function flyToSelectedObject(map, coordinates, zoom, p, b) {
+  console.log(p, b)
   map.flyTo({
     center: coordinates,
     zoom: zoom || 18,
