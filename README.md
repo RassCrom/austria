@@ -11,7 +11,7 @@ This project is a map-based application built with React and Mapbox GL JS...
 
 ## Demo
 
-You can see the live demo of this project [here](#https://austria-msc.netlify.app/).
+You can see the live demo of this project [here](https://austria-msc.netlify.app/).
 
 ## Installation
 
